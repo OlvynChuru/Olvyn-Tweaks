@@ -1,0 +1,2347 @@
+BACKUP ~METweaks/backup~
+AUTHOR ~ms98862n@pace.edu~
+
+ALWAYS
+OUTER_PATCH alltheconstants BEGIN
+	none=0
+	noprojectile=1
+
+	creflags=0x10
+	creatureflags=0x10
+	killxp=0x14
+	xp=0x18
+	status=0x20
+	statepoisoned=0x4000
+	currenthp=0x24
+	maxhp=0x26
+	animation=0x28
+	colormetal=0x2c
+	colorminor=0x2d
+	colormajor=0x2e
+	colorskin=0x2f
+	colorleather=0x30
+	colorarmor=0x31
+	colorhair=0x32
+	hideinshadows=0x45
+	naturalac=0x46
+	effectiveac=0x48
+	acmodcrushing=0x4a
+	acmodmissile=0x4c
+	acmodmissiles=0x4c
+	acmodpiercing=0x4e
+	acmodslashing=0x50
+	thac0=0x52
+	attacksperround=0x53
+	savevsdeath=0x54
+	savevswand=0x55
+	savevspolymorph=0x56
+	savevsbreath=0x57
+	savevsspell=0x58
+	fireresistance=0x59
+	coldresistance=0x5a
+	elecresistance=0x5b
+	electricityresistance=0x5b
+	acidresistance=0x5c
+	magicresistance=0x5d
+	magicfireresistance=0x5e
+	magiccoldresistance=0x5f
+	slashingresistance=0x60
+	crushingresistance=0x61
+	piercingresistance=0x62
+	missilesresistance=0x63
+	missileresistance=0x63
+	detectillusion=0x64
+	detectillusions=0x64
+	settraps=0x65
+	lore=0x66
+	openlocks=0x67
+	movesilently=0x68
+	findtraps=0x69
+	pickpockets=0x6A
+	levelfirstclass=0x234
+	levelsecondclass=0x235
+	levelthirdclass=0x236
+	sex=0x237
+	strength=0x238
+	exceptionalstrength=0x239
+	intelligence=0x23a
+	wisdom=0x23b
+	dexterity=0x23c
+	constitution=0x23d
+	charisma=0x23e
+	kit=0x246
+	overridescript=0x248
+	classscript=0x250
+	racescript=0x258
+	generalscript=0x260
+	defaultscript=0x268
+	allegiance=0x270
+	general=0x271
+	race=0x272
+	class=0x273
+	specifics=0x274
+	gender=0x275
+	alignment=0x27b
+	scriptname=0x280
+	dialog=0x2cc
+	dialogue=0x2cc
+	dialogfile=0x2cc
+	notabname=0x800000
+	disabletooltip=0x800000
+
+	actorsize=0x110
+	atnight=0xFFE0000F
+
+	effstring=0x1c
+	effparameter1=0x1c
+	effparameter2=0x20
+	effsavingthrow=0x40
+	effsavebonus=0x44
+	effparameter3=0x60
+	effparameter4=0x64
+	effresistdispel=0x5c
+
+	areascript=0x94
+
+	itmflags=0x18
+	itemflags=0x18
+	category=0x1c
+	unusability=0x1e
+	unusabilityflags=0x1e
+	appearance=0x22
+	equippedappearance=0x22
+	noappearance=0x2020
+	kitunusability1=0x29
+	kitunusability2=0x2B
+	kitunusability3=0x2D
+	kitunusability4=0x2F
+	minstrength=0x26
+	minimumstrength=0x26
+	minexstrength=0x28
+	minimumexceptionalstrength=0x28
+	minintelligence=0x2a
+	minimumintelligence=0x2a
+	mindexterity=0x2c
+	minimumdexterity=0x2c
+	minwisdom=0x2e
+	minwisdom=0x2e
+	minconstitution=0x30
+	minimumconstitution=0x30
+	mincharisma=0x32
+	minimumcharisma=0x32
+	price=0x34
+	icon=0x3a
+	loretoidentify=0x42
+	groundicon=0x44
+	weight=0x4c
+	weaponproficiency=0x31
+	descriptionimage=0x58
+	weaponenchantment=0x60
+	itemnumberofheaders=0x68
+	itemeffectsoffset=0x6A
+	firstheadericon=0x76
+	firstheaderrange=0x80
+	firstheaderspeed=0x84
+	firstheaderspeedfactor=0x84
+	firstheaderthac0=0x86
+	firstheaderdiesize=0x88
+	firstheaderdicesize=0x88
+	firstheadernumdice=0x8A
+	firstheadernumberofdice=0x8A
+	firstheaderdamage=0x8C
+	firstheaderdamagebonus=0x8C
+	firstheaderdamagetype=0x8E
+	firstheadercharges=0x94
+	firstheaderchargeflags=0x96
+	firstheaderchargeoptions=0x96
+	firstheaderwhendrained=0x96
+	firstheaderflags=0x98
+	firstheaderprojectile=0x9C
+
+	castingsound=0x10
+	splflags=0x18
+	spellflags=0x18
+	spelltype=0x1C
+	spellunusability=0x1E
+	spellexclusion=0x1E
+	exclusionflags=0x1E
+	castinganimation=0x22
+	animationnecromancy=9
+	animationalteration=10
+	animationtransmutation=10
+	animationenchantment=11
+	animationabjuration=12
+	animationillusion=13
+	animationconjuration=14
+	animationinvocation=15
+	animationevocation=15
+	animationdivination=16
+	school=0x25
+	spellschool=0x25
+	abjurer=1
+	abjuration=1
+	conjurer=2
+	conjuration=2
+	diviner=3
+	divination=3
+	enchanter=4
+	enchantment=4
+	enchanting=4
+	illusionist=5
+	illusion=5
+	invoker=6
+	evoker=6
+	invocation=6
+	evocation=6
+	necromancer=7
+	necromancy=7
+	transmuter=8
+	transmutation=8
+	alteration=8
+	generalist=9
+	secondarytype=0x27
+	secondaryspellprotection=1
+	secondaryspellprotections=1
+	secondaryspecificprotection=2
+	secondaryspecificprotections=2
+	secondaryillusionaryprotection=3
+	secondaryillusionaryprotections=3
+	secondarymagicattack=4
+	secondarydivinationattack=5
+	secondaryconjuration=6
+	secondarycombatprotection=7
+	secondarycombatprotections=7
+	secondarycontigency=8
+	secondarybattleground=9
+	secondaryoffensivedamage=10
+	secondarydisabling=11
+	secondarycombination=12
+	secondarynoncombat=13
+	secondarydornssword=14
+	spelllevel=0x34
+	spellicon=0x3A
+
+	headermelee=1
+	headerranged=2
+	headermagical=3
+	headerlauncher=4
+	yesyouhavetoidentifythisitembeforeyoucanuseitsability=1
+	weaponslots=1
+	itemslots=3
+	livingactor=1
+	pointwithinrange=4
+	anypointwithinrange=4
+	caster=5
+	typepiercing=1
+	typecrushing=2
+	typeslashing=3
+	typemissile=4
+	typefist=5
+	typenonlethal=5
+	typestunning=5
+	typepiercingorcrushing=6
+	typepiercingorslashing=7
+	typecrushingorslashing=8
+	itemremains=0
+	itemvanishes=1
+	itembreaks=2
+	replacewithusedup=2
+	itemrecharges=3
+	strengthbonus=1
+	plusstrengthbonus=1
+	addstrengthbonus=1
+	damagestrengthbonus=4
+	thac0strengthbonus=8
+	rechargeafterresting=2048
+	self=1
+	presettarget=2
+	limited=0
+	permanentuntildeath=1
+	whileequipped=2
+	delayed=4
+	permanentafterdeath=9
+	limitedticks=10
+	nodispelbypassresistance=0
+	dispelnotbypassresistance=1
+	dispelbypassresistance=3
+	nosave=0
+	vsspell=1
+	vsbreath=2
+	vsdeath=4
+	vswand=8
+	vswands=8
+	vspolymorph=16
+	bypassmirrorimage=16777216
+	ignoredifficulty=33554432
+
+	idsea=2
+	eaanyone=0
+	eapc=2
+	eafamiliar=3
+	eaally=4
+	eacontrolled=5
+	eacharmed=6
+	eareallycharmed=7
+	eagoodbutblue=28
+	eagoodbutred=29
+	eagoodcutoff=30
+	eaneutral=128
+	eaevilcutoff=200
+	eaevilbutgreen=201
+	eaevilbutblue=202
+	eaenemy=255
+	idsgeneral=3
+	generalhumanoid=1
+	generalanimal=2
+	generalundead=4
+	generalgianthumanoid=5
+	generalmonster=255
+	idsrace=4
+	racehuman=1
+	raceelf=2
+	racehalfelf=3
+	racedwarf=4
+	racehalfling=5
+	racegnome=6
+	racehalforc=7
+	racedoppleganger=106
+	racedoppelganger=106
+	raceskeleton=115
+	racelycanthrope=122
+	racerakshasa=128
+	racetroll=129
+	racenorace=255
+	idsclass=5
+	classmage=1
+	classfighter=2
+	classcleric=3
+	classthief=4
+	classbard=5
+	classpaladin=6
+	classfightermage=7
+	classfightercleric=8
+	classfighterthief=9
+	classfightermagethief=10
+	classdruid=11
+	classranger=12
+	classmagethief=13
+	classclericmage=14
+	classclericthief=15
+	classfighterdruid=16
+	classfightermagecleric=17
+	classclericranger=18
+	classsorcerer=19
+	classmonk=20
+	classshaman=21
+	classpolarbear=107
+	classdoppleganger=111
+	classdoppelganger=111
+	classdopplegangergreater=112
+	classdoppelgangergreater=112
+	classwinterwolf=146
+	classinnocent=155
+	classflamingfist=156
+	classwerewolf=157
+	classwolfwere=158
+	classrakshasa=166
+	classlongbow=202
+	classmageall=202
+	classfighterall=203
+	classclericall=204
+	classthiefall=205
+	classbardall=206
+	classpaladinall=207
+	classdruidall=208
+	classrangerall=209
+	classnoclass=255
+	idsspecific=6
+	idsgender=7
+	gendermale=1
+	genderfemale=2
+	genderneither=4
+	gendersummoned=6
+	genderillusionary=7
+	gendersummoneddemon=9
+	idsalignment=8
+	alignmentnone=0
+	alignmentmaskgood=1
+	alignmentmaskgeneutral=2
+	alignmentmaskevil=3
+	alignmentmasklawful=16
+	alignmentlawfulgood=17
+	alignmentlawfulneutral=18
+	alignmentlawfulevil=19
+	alignmentmasklcneutral=32
+	alignmentneutralgood=33
+	alignmentneutral=34
+	alignmenttrueneutral=34
+	alignmentneutralevil=35
+	alignmentmaskchaotic=48
+	alignmentchaoticgood=49
+	alignmentchaoticneutral=50
+	alignmentchaoticevil=51
+	idskit=9
+	kitmageschoolabjurer=64
+	kitabjurer=64
+	kitmageschoolconjurer=128
+	kitconjurer=128
+	kitmageschooldiviner=256
+	kitdiviner=256
+	kitmageschoolenchanter=512
+	kitenchanter=512
+	kitmageschoolillusionist=1024
+	kitillusionist=1024
+	kitmageschoolinvoker=2048
+	kitinvoker=2048
+	kitmageschoolnecromancer=4096
+	kitnecromancer=4096
+	kitmageschooltransmuter=8192
+	kittransmuter=8192
+	kittrueclass=16384
+	kitberserker=16385
+	kitwizardslayer=16386
+	kitkensai=16387
+	kitcavalier=16388
+	kitinquisitor=16389
+	kitundeadhunter=16390
+	kitferalan=16391
+	kitarcher=16391
+	kitstalker=16392
+	kitbeastmaster=16393
+	kitassassin=16394
+	kitbountyhunter=16395
+	kitswashbuckler=16396
+	kitblade=16397
+	kitjester=16398
+	kitskald=16399
+	kittotemic=16400
+	kittotemicdruid=16400
+	kitshapeshifter=16401
+	kitbeastfriend=16402
+	kitavenger=16402
+	kitgodtalos=16403
+	kitpriestoftalos=16403
+	kitgodhelm=16404
+	kitpriestofhelm=16404
+	kitgodlathander=16405
+	kitpriestoflathander=16405
+	kitblackguard=16416
+	kitshadowdancer=16417
+	kitdwarvendefender=16418
+	kitdragondisciple=16419
+	kitdarkmoon=16420
+	kitdarkmoonmonk=16420
+	kitsunsoul=16421
+	kitsunsoulmonk=16421
+	kitohtyr=16422
+	kitgodtyr=16422
+	kitpriestoftyr=16422
+	kitbarbarian=1073741824
+
+	modifyarmorclass=0
+	modifyac=0
+	modifyacvscrushing=1
+	modifyacvsmissile=2
+	modifyacvsmissiles=2
+	modifyacvspiercing=4
+	modifyacvsslashing=8
+	modifybaseac=16
+	setbaseac=16
+	modifyattacksperround=1
+	curesleep=2
+	removesleep=2
+	charm=5
+	charm1=5
+	modifycharisma=6
+	setcolor=7
+	setcolorglowsolid=8
+	modifyconstitution=10
+	curepoison=11
+	removepoison=11
+	damage=12
+	increment=0
+	set=1
+	settopercentage=2
+	dealpercentage=3
+	crushingdamage=0
+	aciddamage=0x10000
+	colddamage=0x20000
+	elecdamage=0x40000
+	electricitydamage=0x40000
+	firedamage=0x80000
+	piercingdamage=0x100000
+	poisondamage=0x200000
+	magicdamage=0x400000
+	missiledamage=0x800000
+	slashingdamage=0x1000000
+	magicfiredamage=0x2000000
+	magiccolddamage=0x4000000
+	nonlethaldamage=0x8000000
+	killtarget=13
+	modifydexterity=15
+	haste1=16
+	normalhaste=0
+	improvedhaste=1
+	hastenoextraattacks=2
+	modifycurrenthp=17
+	modifymaxhp=18
+	modifymaximumhp=18
+	modifyintelligence=19
+	invisibility=20
+	normalinvisibility=0
+	partialinvisibility=1
+	modifylore=21
+	modifyluck=22
+	resetmorale=23
+	panic=24
+	poison=25
+	modifyacidresistance=27
+	modifycoldresistance=28
+	modifyelecresistance=29
+	modifyelectricresistance=29
+	modifyelectricityresistance=29
+	modifyfireresistance=30
+	modifymagicdamageresistance=31
+	modifysavevsdeath=33
+	modifysavevswand=34
+	modifysavevswands=34
+	modifysavevspolymorph=35
+	modifysavevspoly=35
+	modifysavevsbreath=36
+	modifysavevsspell=37
+	silence=38
+	sleep=39
+	wakewhendamaged=0
+	donotwakewhendamaged=1
+	slow=40
+	bonuswizardspells=42
+	doublespellsoflevelorlower=0
+	level1=1
+	level2=2
+	level3=4
+	level4=8
+	level5=16
+	level6=32
+	level7=64
+	level8=128
+	level9=256
+	doublespellsoflevel=512
+	modifystrength=44
+	stun=45
+	curestun=46
+	curestunning=46
+	removestun=46
+	removestunning=46
+	removeinvisibility1=47
+	modifywisdom=49
+	colorpulse=50
+	modifybasethac0=54
+	slay=55
+	dispeleffects=58
+	modifymovesilently=59
+	castingfailure=60
+	spellfailure=60
+	modifyspellfailure=60
+	bonuspriestspells=62
+	infravision=63
+	blur=65
+	translucency=66
+	summoncreature=67
+	createcreature=67
+	nondetection=69
+	modifydamage=73
+	modifyattackdamage=73
+	blindness=74
+	feeblemind=76
+	feeblemindedness=76
+	disease=78
+	deafness=80
+	protectionfromprojectile=83
+	modifymagicfireresistance=84
+	modifymagiccoldresistance=85
+	modifyslashingresistance=86
+	modifycrushingresistance=87
+	modifypiercingresistance=88
+	modifymissileresistance=89
+	modifymissilesresistance=89
+	modifyopenlocks=90
+	modifyfindtraps=91
+	modifypickpockets=92
+	modifyfatigue=93
+	modifyintoxication=94
+	modifyexceptionalstrength=97
+	regenerate=98
+	regeneration=98
+	modifyregenerationrate=98
+	modifyduration=99
+	modifyspellduration=99
+	protectionfromcreaturetype=100
+	protectionfromopcode=101
+	protectionfromspelllevel=102
+	removegold=105
+	moralebreak=106
+	modifymoralebreak=106
+	paralyze=109
+	createweapon=111
+	createmagicalweapon=111
+	magicalweapon=111
+	removeitem=112
+	detectalignment=115
+	removeinvisibility2=116
+	clairvoyance=117
+	mirrorimagebasedonlevel=119
+	mirrorimage1=119
+	protectionfromweapons=120
+	enchanted=0
+	magical=1
+	nonmagical=2
+	nonsilver=4
+	noncoldiron=11
+	createitem=122
+	teleport=124
+	switchwithtarget=3
+	modifymovementrate1=126
+	summonmonsters=127
+	summonmonsters1=127
+	confusion=128
+	aid=129
+	bless=130
+	chant=131
+	positivechant=131
+	goodchant=131
+	drawuponholymight=132
+	lucknoncumulative=133
+	petrify=134
+	petrification=134
+	polymorph=135
+	forcevisible=136
+	negativechant=137
+	badchant=137
+	displaystring=139
+	playvisualeffectbg1=141
+	visualeffectbg1=141
+	displayportraiticon=142
+	createiteminslot=143
+	disablebutton=144
+	buttonstealth=0
+	buttonthieving=1
+	buttonmagic=2
+	buttonquickspell1=3
+	buttonquickspell2=4
+	buttonquickspell3=5
+	buttonturnundead=6
+	buttontalk=7
+	buttonuseitem=8
+	buttonquickitem1=9
+	buttonbardsong=10
+	buttonquickitem2=11
+	buttonquickitem3=12
+	buttonabilities=13
+	buttonfindtraps=14
+	buttoninventory=15
+	disablespellcasting=145
+	castspell=146
+	castnormally=0
+	castinstantlyatcasterlevel=1
+	castinstantlyatspecifiedlevel=2
+	learnspell=147
+	castspellpoint=148
+	castspellatpoint=148
+	findtraps=150
+	replaceself=151
+	removesilently=0
+	removeviachunkeddeath=1
+	removevianormaldeath=2
+	sanctuary=153
+	entangle=154
+	minorglobe=155
+	protectionfromnormalmissiles=156
+	web=157
+	grease=158
+	mirrorimage=159
+	mirrorimage2=159
+	removesanctuary=160
+	removefear=161
+	cureparalysis=162
+	removeparalysis=162
+	freeaction=163
+	pausetarget=165
+	modifymagicresistance=166
+	modifymissilethac0=167
+	removecreature=168
+	disableportraiticon=169
+	protectionfromportraiticon=169
+	giveability=171
+	removeability=172
+	modifypoisonresistance=173
+	playsound=174
+	holdcreature1=175
+	modifymovementrate2=176
+	useefffile=177
+	modifythac0vscreaturetype=178
+	thac0vscreaturetype=178
+	damagevscreaturetype=179
+	passwall=184
+	holdcreature2=185
+	movecreaturetonewarea=186
+	setlocalvariable=187
+	auracleansing=188
+	modifycastingtime=189
+	modifycastingspeed=189
+	modifyspeedfactor=190
+	modifycastinglevel=191
+	modifycasterlevel=191
+	wizard=0
+	priest=1
+	innate=2
+	invisibilitydetection=193
+	familiardeatheffect=195
+	reflectprojectile=197
+	reflectopcode=198
+	reflectspelllevel=199
+	spellturning=200
+	spelldeflection=201
+	reflectspellschool=202
+	abjuration=1
+	conjuration=2
+	divination=3
+	enchantment=4
+	illusion=5
+	evocation=6
+	necromancy=7
+	alteration=8
+	reflectspelltype=203
+	spellprotections=1
+	specificprotections=2
+	illusionaryprotections=3
+	magicattack=4
+	divinationattack=5
+	combatprotections=7
+	offensivedamage=10
+	disabling=11
+	protectionfromspellschool=204
+	protectionfromspelltype=205
+	protectionfromspell=206
+	reflectspell=207
+	minhp=208
+	minimumhp=208
+	powerwordkill=209
+	powerwordstun=210
+	imprisonment=211
+	freedom=212
+	maze=213
+	selectspell=214
+	playvisualeffectbg2=215
+	visualeffectbg2=215
+	leveldrain=216
+	powerwordsleep=217
+	stoneskin=218
+	modifyacvscreaturetype=219
+	acvscreaturetype=219
+	removespellsofschool=220
+	removespellsbyschool=220
+	removespellsoftype=221
+	removespellsbytype=221
+	teleportfield=222
+	restoration=224
+	removeonespellofschool=229
+	removeonespelloftype=230
+	timestop=231
+	castspelloncondition=232
+	targetcaster=0
+	targetlasthitby=1
+	targetnearestenemy=2
+	targetnearest=3
+	ifhit=0
+	ifseeenemy=1
+	ifhplessthan50percent=2
+	ifhplessthan25percent=3
+	ifhplessthan10percent=4
+	ifhelpless=5
+	ifpoisoned=6
+	ifattacked=7
+	ifwithinrange4=8
+	ifwithinrange10=9
+	iftookdamage=11
+	iftakedamage=11
+	ifcasterkillssomeone=12
+	iftimeofdayisspecial=13
+	daytime=0
+	dusk=1
+	nighttime=2
+	morning=3
+	ifwithinrangespecial=14
+	ifstatespecial=15
+	statenormal=0
+	ifcasterdies=16
+	ifcasterdied=17
+	ifhplessthanspecial=19
+	ifhplessthanspecialpercent=20
+	modifyproficiency=233
+	modifyproficiencies=233
+	contingency=234
+	createcontingency=234
+	wingbuffet=235
+	awayfromtarget=1
+	awayfromsource=2
+	towardstarget=3
+	towardssource=4
+	projectimage=236
+	disintegrate=238
+	farsight=239
+	removeportraiticon=240
+	charm2=241
+	drainitemcharges=243
+	drainwizardspells=244
+	attacknearestcreature=247
+	meleehiteffect=248
+	setmeleeeffect=248
+	rangedhiteffect=249
+	setrangedeffect=249
+	modifyminimumdamage=250
+	modifybardsong=251
+	settrap=252
+	addautomapnote=253
+	removeautomapnote=254
+	createspellsequencer=257
+	spelltrap=259
+	restorelostspells=261
+	modifyvisionrange=262
+	modifyvisualrange=262
+	modifybackstabmultiplier=263
+	setglobalvariable=265
+	modifyglobalvariable=265
+	modifyglobal=265
+	disablestring=267
+	disabledisplaystring=267
+	protectionfromstring=267
+	clearfogofwar=268
+	wizardeye=268
+	shakescreen=269
+	applyrepeatingeff=272
+	valuepersecond=2
+	oncepervalueseconds=3
+	zoneofsweetair=273
+	phase=274
+	modifyhideinshadows=275
+	modifydetectillusion=276
+	modifydetectillusions=276
+	modifysettraps=277
+	modifythac0=278
+	enablebutton=279
+	modifywildsurge=281
+	wildsurgebonus=281
+	useefffileascurse=283
+	modifymeleethac0=284
+	modifymeleedamage=285
+	modifymissiledamage=286
+	removecircle=287
+	modifyfistthac0=288
+	modifyfistdamage=289
+	disablevisualeffects=291
+	protectionfrombackstab=292
+	offscreenai=293
+	disablepermanentdeath=295
+	protectionfromanimation=296
+	protectionfromturnundead=297
+	npcbump=300
+	criticalhitbonus=301
+	modifycriticalhitchance=301
+	withbothweapons=0
+	withthisweapon=1
+	allweapons=0
+	meleeweapons=1
+	missileweapons=2
+	useanyitem=302
+	canuseanyitem=302
+	backstabeveryhit=303
+	backstabeachhit=303
+	backstaboneveryhit=303
+	massraisedead=304
+	modifyoffhandthac0=305
+	modifymainhandthac0=306
+	setlocalvariable=309
+	modifylocalvariable=309
+	protectionfromtimestop=310
+	rest=316
+	haste2=317
+	protectionfromspell2=318
+	removeeffectsbyresource=321
+	modifyturnundeadlevel=323
+	protectionfromspell3=324
+	immunitytospellandmessage=324
+	modifyallsavingthrows=325
+	modifyallsaves=325
+	applyeffectslist=326
+	playvisualeffectiwd=327
+	visualeffectiwd=327
+	setstate=328
+	setspellstate=328
+	floattext=330
+	damagetypebonus=332
+	bonusall=0
+	bonusfire=1
+	bonuscold=2
+	bonuselec=3
+	bonuselectricity=3
+	bonusacid=4
+	bonusmagic=5
+	bonuspoison=6
+	bonusslashing=7
+	bonuspiercing=8
+	bonuscrushing=9
+	bonusmissile=10
+	removeeffect=337
+	removeopcode=337
+	removeeffectsbyopcode=337
+	castspellonbackstab=340
+	backstabhiteffect=340
+	castspelloncriticalhit=341
+	criticalhiteffect=341
+	hpswap=343
+	swaphp=343
+	enchantmentvscreaturetype=344
+	modifyenchantment=345
+	modifysavevsschool=346
+	modifysavingthrowvsschool=346
+	castspelloncriticalmiss=361
+	movementratecheck=363
+	castspellonmovement=366
+	applyspellonmovement=366
+	gulp=16233
+	spellineffective=24534
+	stringpanic=25818
+	stringstunned=26050
+	stringblinded=31786
+END
+
+/**
+ * Patch function. Converts any decimal number into a hexadecimal number.
+ * INT_VAR value      The decimal number to convert.
+ * INT_VAR minDigits  Minimum number of digits for the returned hex value. (default: 1)
+ * INT_VAR prefix     A flag that indicates whether the returned number will be prefixed with "0x". (default: 0)
+ * RET hexNumber      The converted hexadecimal number as string.
+ */
+DEFINE_PATCH_FUNCTION TO_HEX_NUMBER
+INT_VAR
+  value     = 0
+  minDigits = 1
+  prefix    = 0
+RET
+  hexNumber
+BEGIN
+  SET minDigits = (minDigits < 1) ? 1 : minDigits
+  SET minDigits = (minDigits > 8) ? 8 : minDigits
+  TEXT_SPRINT hexNumber ~~
+  PATCH_DEFINE_ARRAY digit BEGIN ~0~ ~1~ ~2~ ~3~ ~4~ ~5~ ~6~ ~7~ ~8~ ~9~ ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ END
+
+  PATCH_IF (value < 0) BEGIN
+    SET signed = 1
+    SET value = 0 - value
+  END ELSE BEGIN
+    SET signed = 0
+  END
+
+  WHILE (value != 0) BEGIN
+    SET curDigit = value BAND 0xf
+    SET value = value BLSR 4
+    TEXT_SPRINT hexDigit $EVAL digit(~%curDigit%~)
+    TEXT_SPRINT hexNumber ~%hexDigit%%hexNumber%~
+  END
+
+  WHILE (STRING_LENGTH ~%hexNumber%~ < minDigits) BEGIN
+    TEXT_SPRINT hexNumber ~0%hexNumber%~
+  END
+
+  PATCH_IF (prefix) BEGIN
+    TEXT_SPRINT hexNumber ~0x%hexNumber%~
+  END
+
+  PATCH_IF (signed) BEGIN
+    TEXT_SPRINT hexNumber ~-%hexNumber%~
+  END
+END
+
+// Action version of TO_HEX_NUMBER
+DEFINE_ACTION_FUNCTION TO_HEX_NUMBER
+INT_VAR
+  value     = 0
+  minDigits = 1
+  prefix    = 0
+RET
+  hexNumber
+BEGIN
+  OUTER_PATCH ~~ BEGIN
+    LPF TO_HEX_NUMBER INT_VAR value = value minDigits = minDigits prefix = prefix RET hexNumber END
+  END
+END
+
+// Internally used: Animation slots reserved by vanilla or mod-added game creatures (in hexadecimal format)
+// Mods with fixed animation slots that are currently considered:
+// - Bearwalker + extended Werebear animation
+// - Pack Mule
+OUTER_TEXT_SPRINT animationSlots ~"0410" "1000" "1003" "1004" "1100" "1101" "1102" "1103" "1104" "1105" "1200" "1201" "1202" "1203" "1204" "1205" "1206" "1207" "1208" "1300" "2000" "2100" "2200" "2300" "3000" "3001" "4000" "4001" "4002" "4010" "4012" "4100" "4101" "4102" "4110" "4112" "4200" "4300" "4400" "4410" "4500" "4600" "4700" "4710" "4800" "5000" "5001" "5002" "5003" "5010" "5011" "5012" "5013" "5100" "5101" "5102" "5103" "5110" "5111" "5112" "5113" "5200" "5201" "5202" "5210" "5211" "5212" "5300" "5301" "5302" "5303" "5310" "5311" "5312" "5313" "6000" "6001" "6002" "6003" "6004" "6005" "6010" "6011" "6012" "6013" "6014" "6015" "6100" "6101" "6102" "6103" "6104" "6105" "6110" "6111" "6112" "6113" "6114" "6115" "6200" "6201" "6202" "6204" "6205" "6210" "6211" "6212" "6214" "6215" "6300" "6301" "6302" "6303" "6304" "6305" "6310" "6311" "6312" "6313" "6314" "6315" "6400" "6401" "6402" "6403" "6404" "6405" "6406" "6500" "6510" "6621" "7000" "7001" "7100" "7101" "7200" "7201" "7202" "7203" "7300" "7301" "7302" "7310" "7311" "7312" "7313" "7314" "7320" "7321" "7400" "7401" "7402" "7500" "7501" "7600" "7601" "7602" "7603" "7604" "7700" "7701" "7702" "7703" "7800" "7801" "7802" "7900" "7901" "7902" "7903" "7904" "7a00" "7a01" "7a02" "7a03" "7a04" "7b00" "7b01" "7b02" "7b03" "7b04" "7b05" "7b06" "7c00" "7c01" "7d00" "7d01" "7d02" "7d03" "7d04" "7d05" "7d06" "7d07" "7d08" "7e00" "7e01" "7f00" "7f01" "7f02" "7f03" "7f04" "7f05" "7f06" "7f07" "7f08" "7f09" "7f0a" "7f0b" "7f0c" "7f0d" "7f0e" "7f0f" "7f10" "7f11" "7f12" "7f13" "7f14" "7f15" "7f16" "7f17" "7f18" "7f19" "7f20" "7f21" "7f22" "7f23" "7f24" "7f27" "7f28" "7f29" "7f2a" "7f2b" "7f2c" "7f2d" "7f2e" "7f2f" "7f30" "7f31" "7f32" "7f33" "7f34" "7f35" "7f36" "7f37" "7f38" "7f39" "7f3a" "7f3b" "7f3c" "7f3d" "7f3e" "7f3f" "7f40" "7f41" "7f42" "7f43" "7f44" "7f45" "7f46" "7f47" "7f48" "7f49" "7f4a" "7f4b" "7f4c" "7f4d" "7f4e" "7f4f" "7f50" "7f51" "7f52" "7f53" "7f54" "7f55" "7f56" "7f57" "7f58" "7f59" "7f5a" "7f5b" "7f5c" "7f5d" "7f5e" "7f5f" "7f60" "7f61" "7f62" "8000" "8100" "8200" "9000" "a000" "a100" "a200" "a201" "a202" "b000" "b100" "b200" "b210" "b300" "b310" "b400" "b410" "b500" "b510" "b600" "b610" "b700" "c000" "c100" "c200" "c300" "c400" "c500" "c600" "c610" "c700" "c710" "c800" "c810" "c900" "c910" "ca00" "ca10" "cb00" "cc00" "cc01" "cc02" "cc04" "d000" "d100" "d200" "d300" "d400" "e000" "e010" "e020" "e040" "e050" "e060" "e070" "e080" "e090" "e0a0" "e0b0" "e0c0" "e0d0" "e0e0" "e0f0" "e0f1" "e0f2" "e200" "e210" "e220" "e230" "e240" "e241" "e242" "e243" "e244" "e245" "e246" "e247" "e248" "e249" "e24a" "e24b" "e24c" "e24d" "e24e" "e24f" "e250" "e251" "e252" "e253" "e254" "e255" "e256" "e257" "e258" "e259" "e25a" "e25b" "e25c" "e25d" "e25e" "e25f" "e260" "e261" "e262" "e263" "e264" "e265" "e266" "e267" "e26a" "e26b" "e26d" "e26e" "e26f" "e270" "e271" "e272" "e273" "e274" "e276" "e279" "e27d" "e27e" "e27f" "e280" "e281" "e282" "e283" "e288" "e289" "e28a" "e28b" "e28c" "e28d" "e28e" "e28f" "e290" "e291" "e292" "e293" "e294" "e300" "e310" "e320" "e330" "e400" "e410" "e420" "e430" "e440" "e441" "e442" "e443" "e444" "e500" "e510" "e520" "e600" "e610" "e6fe" "e700" "e710" "e720" "e800" "e810" "e820" "e830" "e840" "e900" "e910" "ea00" "ea10" "ea20" "eb00" "eb10" "eb20" "ec00" "ec10" "ec20" "ed00" "ed10" "ed20" "ee00" "ee10" "ef10" "f000" "f001" "f002" "f003" "f004" "f005" "f006" "f007" "f008" "f009" "f00a" "f00b" "f00c" "f00d" "f00e" "f00f" "f010" "f011" "f012" "f013" "f014" "f015" "f016" "f017" "f018" "f019" "f01a" "f01b" "f01c" "f01d" "f01e" "f01f" "f020" "f021" "f022" "f023" "f024" "f025" "f026" "f027" "f028" "f029" "f02a" "f02b" "f02c" "f02d" "f02e" "f02f" "f030" "f031" "f032" "f033" "f034" "f035" "f036" "f037" "f038" "f039" "f03a" "f03b" "f03c" "f03d" "f03e" "f03f" "f040" "f041" "f042" "f043" "f044" "f045" "f046" "f047" "f048" "f049" "f04a" "f04b" "f04c" "f04d" "f04e" "f04f" "f050" "f051" "f052" "f053" "f054" "f055" "f056" "f057" "f058" "f059" "f05a" "f05b" "f05c" "f05d" "f05e" "f05f" "f060" "f061" "f062" "f100" "f101" "f22e" "f80e"~
+
+/**
+ * Patch function. Returns the first free creature animation slot in the range defined by slotMin and slotMax.
+ * INT_VAR slotMin    Lowest available creature animation slot for the animation, inclusive. (Default: 0)
+ * INT_VAR slotMax    Highest available creature animation slot for the animation, exclusive.
+ *                    (Default: highest value for slot type indicated by "slotMin")
+ * INT_VAR slotSteps  How many slots to skip after each iteration, starting from slotMin.
+ *                    Setting this parameter is useful if compatible animation slots are always 
+ *                    a fixed distance apart (e.g. at a distance of 0x10 each). (Default: 1)
+ * RET slot           A free animation slot. Returns -1 if none are found in the given range.
+ */
+DEFINE_PATCH_FUNCTION FIND_FREE_ANIM_SLOT
+INT_VAR
+  slotMin   = 0
+  slotMax   = (slotMin BAND 0xf000) + 0x1000
+  slotSteps = 1
+RET
+  slot
+BEGIN
+  SET slot = "-1"
+  SET slotSteps = (slotSteps < 1) ? 1 : slotSteps
+  SET slotMin = (slotMin < 0) ? 0 : slotMin
+  SET slotMax = (slotMax < 0) ? 0 : slotMax
+  PATCH_IF (slotMax < slotMin) BEGIN
+    SET tmp = slotMin
+    SET slotMin = slotMax
+    SET slotMax = tmp
+  END
+
+  INNER_PATCH ~%animationSlots%~ BEGIN
+    FOR (idx = slotMin; idx < slotMax; idx += slotSteps) BEGIN
+      LOOKUP_IDS_SYMBOL_OF_INT name ~animate~ idx
+      PATCH_IF (~%name%~ STR_EQ ~%idx%~) BEGIN
+        LPF TO_HEX_NUMBER INT_VAR value = idx minDigits = 4 RET hexNumber END
+        PATCH_IF (NOT FILE_EXISTS_IN_GAME ~%hexNumber%.ini~ AND 
+                  ~%slotList%~ STRING_CONTAINS_REGEXP ~"%hexNumber%"~ != 0) BEGIN
+          SET slot = idx
+          SET idx = slotMax
+        END
+      END
+    END
+  END
+END
+
+// Action version of FIND_FREE_ANIM_SLOT
+DEFINE_ACTION_FUNCTION FIND_FREE_ANIM_SLOT
+INT_VAR
+  slotMin   = 0
+  slotMax   = (slotMin BAND 0xf000) + 0x1000
+  slotSteps = 1
+RET
+  slot
+BEGIN
+  OUTER_PATCH ~~ BEGIN
+    LPF FIND_FREE_ANIM_SLOT
+    INT_VAR
+      slotMin = slotMin
+      slotMax = slotMax
+      slotSteps = slotSteps
+    RET
+      slot
+    END
+  END
+END
+
+DEFINE_ACTION_FUNCTION ~GET_UNIQUE_SPELL_NAME~
+	STR_VAR
+		prefix=~DEFA~
+	RET
+		filename
+	BEGIN
+		OUTER_FOR(i=0; i<10; ++i) BEGIN
+			OUTER_FOR(j=0; j<10; ++j) BEGIN
+				ACTION_IF (NOT FILE_EXISTS_IN_GAME ~%prefix%%i%%j%.spl~ AND NOT (i=0 AND j=0)) BEGIN
+					OUTER_TEXT_SPRINT filename ~%prefix%%i%%j%~
+					OUTER_SET i = 10
+					OUTER_SET j = 10
+				END
+			END
+		END
+	END
+
+DEFINE_PATCH_FUNCTION ~ALTER_ACTOR_AT_POINT~
+	INT_VAR
+		match_x_coord=3
+		match_y_coord=3
+		x_coord=3
+		y_coord=3
+		schedule=0xEFFFFFFF
+	STR_VAR
+		actor_name=~ndgnfldiiwds~
+		cre_file=~pbfjkwxz~
+	BEGIN
+		READ_LONG 0x54 actoroffset
+		READ_SHORT 0x58 actornumber
+		FOR (i = 0; i < actornumber; ++i) BEGIN
+			SET offset = actoroffset + (i * 0x110)
+			READ_SHORT (offset + 0x20) xpos
+			READ_SHORT (offset + 0x22) ypos
+			PATCH_IF (xpos = match_x_coord AND ypos = match_y_coord) BEGIN
+				PATCH_IF (schedule != 0xEFFFFFFF) BEGIN
+					WRITE_LONG (offset + 0x40) schedule
+				END
+				PATCH_IF (x_coord != 3 AND y_coord != 3) BEGIN
+					WRITE_SHORT (offset + 0x20) x_coord
+					WRITE_SHORT (offset + 0x22) y_coord
+					WRITE_SHORT (offset + 0x24) x_coord
+					WRITE_SHORT (offset + 0x26) y_coord
+				END
+				PATCH_IF (~%actor_name%~ STRING_EQUAL ~ndgnfldiiwds~)=0 BEGIN
+					WRITE_ASCIIE offset ~%actor_name%~ #32
+				END
+				PATCH_IF (~%cre_file%~ STRING_EQUAL ~pbfjkwxz~)=0 BEGIN
+					WRITE_ASCIIE (offset + 0x80) ~%cre_file%~ #8
+				END
+			END
+		END
+	END
+
+DEFINE_PATCH_FUNCTION ~ADD_ITEM_HEADER~
+  INT_VAR
+    type=3
+    required_id=0
+    location=3
+    alt_dicesize=0
+    target=1
+    target_count=0
+    range=0
+    projectile_type=0
+    alt_dicenumber=0
+    speed=0
+    alt_damage=0
+    thaco=0
+    dicesize=0
+    school=0
+    dicenumber=0
+    sectype=0
+    damage=0
+    damage_type=0
+    charges=0
+    depletion=0
+    flags=0
+    projectile=1
+    overhand=0
+    backhand=0
+    thrust=0
+    is_bow=0
+    is_xbow=0
+    is_sling=0
+
+    copy_header=0
+    insert_point=~-1~
+  STR_VAR
+    icon=~~
+  RET
+    insert_point
+BEGIN
+  hs=0x38
+
+  READ_LONG 0x64 ho
+  READ_SHORT 0x68 hc
+  READ_LONG 0x6a eo
+  insert_point = (insert_point>hc || insert_point<0) ? hc : insert_point
+  copy_header = (copy_header<0) ? 0 : copy_header
+
+  PATCH_IF copy_header>hc BEGIN
+    PATCH_WARN ~Unable to copy %copy_header%th header, %SOURCE_FILE% contains only %hc% headers!~
+  END ELSE BEGIN
+    INSERT_BYTES ho+insert_point*hs hs
+    hc+=1
+    eo+=hs
+    PATCH_IF copy_header BEGIN
+      READ_SHORT ho+(copy_header - 1)*hs+0x1e ec
+      READ_SHORT ho+(copy_header - 1)*hs+0x20 ei
+      READ_ASCII eo+ei*0x30 effs (ec*0x30)
+      READ_ASCII ho+(copy_header - 1)*hs copy (hs)
+      WRITE_ASCIIE ho+insert_point*hs ~%copy%~ (hs)
+    END
+    WRITE_SHORT 0x68 hc
+    WRITE_LONG 0x6a eo
+
+    READ_SHORT 0x70 ei
+    FOR (i=ho;i<ho+hc*hs;i+=hs) BEGIN
+      READ_SHORT i+0x1e ec
+      WRITE_SHORT i+0x20 ei
+      ei+=ec
+    END
+
+    PATCH_IF copy_header BEGIN
+      READ_SHORT ho+insert_point*hs+0x1e ec
+      READ_SHORT ho+insert_point*hs+0x20 ei
+      INSERT_BYTES eo+ei*0x30 ec*0x30
+      WRITE_ASCIIE eo+ei*0x30 ~%effs%~ (ec*0x30)
+    END ELSE BEGIN
+      off=ho+insert_point*hs
+      WRITE_BYTE off type
+      WRITE_BYTE off+0x1 required_id
+      WRITE_BYTE off+0x2 location
+      WRITE_BYTE off+0x3 alt_dicesize
+      WRITE_ASCIIE off+0x4 ~%icon%~ (8)
+      WRITE_BYTE off+0xc target
+      WRITE_BYTE off+0xd target_count
+      WRITE_SHORT off+0xe range
+      WRITE_BYTE off+0x10 projectile_type
+      WRITE_BYTE off+0x11 alt_dicenumber
+      WRITE_BYTE off+0x12 speed
+      WRITE_BYTE off+0x13 alt_damage
+      WRITE_SHORT off+0x14 thaco
+      WRITE_BYTE off+0x16 dicesize
+      WRITE_BYTE off+0x17 school
+      WRITE_BYTE off+0x18 dicenumber
+      WRITE_BYTE off+0x19 sectype
+      WRITE_SHORT off+0x1a damage
+      WRITE_SHORT off+0x1c damage_type
+      WRITE_SHORT off+0x22 charges
+      WRITE_SHORT off+0x24 depletion
+      WRITE_LONG off+0x26 flags
+      WRITE_SHORT off+0x2a projectile
+      WRITE_SHORT off+0x2c overhand
+      WRITE_SHORT off+0x2e backhand
+      WRITE_SHORT off+0x30 thrust
+      WRITE_SHORT off+0x32 is_bow
+      WRITE_SHORT off+0x34 is_xbow
+      WRITE_SHORT off+0x36 is_sling
+    END
+  END
+END
+
+DEFINE_PATCH_FUNCTION ~ADD_SPELL_HEADER~
+	INT_VAR
+		type=1
+		location=4
+		target=1
+		target_count=0
+		range=0
+		required_level=1
+		speed=0
+		projectile=1
+
+		copy_header=0
+		insert_point=~-1~
+	STR_VAR
+		icon=~~
+	RET
+		insert_point
+BEGIN
+  hs=0x28
+
+  READ_LONG 0x64 ho
+  READ_SHORT 0x68 hc
+  READ_LONG 0x6a eo
+  insert_point = (insert_point>hc || insert_point<0) ? hc : insert_point
+  copy_header = (copy_header<0) ? 0 : copy_header
+
+  PATCH_IF copy_header>hc BEGIN
+    PATCH_WARN ~Unable to copy %copy_header%th header, %SOURCE_FILE% contains only %hc% headers!~
+  END ELSE BEGIN
+    INSERT_BYTES ho+insert_point*hs hs
+    hc+=1
+    eo+=hs
+    PATCH_IF copy_header BEGIN
+      READ_SHORT ho+(copy_header - 1)*hs+0x1e ec
+      READ_SHORT ho+(copy_header - 1)*hs+0x20 ei
+      READ_ASCII eo+ei*0x30 effs (ec*0x30)
+      READ_ASCII ho+(copy_header - 1)*hs copy (hs)
+      WRITE_ASCIIE ho+insert_point*hs ~%copy%~ (hs)
+    END
+    WRITE_SHORT 0x68 hc
+    WRITE_LONG 0x6a eo
+
+    READ_SHORT 0x70 ei
+    FOR (i=ho;i<ho+hc*hs;i+=hs) BEGIN
+      READ_SHORT i+0x1e ec
+      WRITE_SHORT i+0x20 ei
+      ei+=ec
+    END
+
+    PATCH_IF copy_header BEGIN
+      READ_SHORT ho+insert_point*hs+0x1e ec
+      READ_SHORT ho+insert_point*hs+0x20 ei
+      INSERT_BYTES eo+ei*0x30 ec*0x30
+      WRITE_ASCIIE eo+ei*0x30 ~%effs%~ (ec*0x30)
+    END ELSE BEGIN
+      off=ho+insert_point*hs
+      WRITE_BYTE off type
+      WRITE_BYTE off+0x2 location
+      WRITE_ASCIIE off+0x4 ~%icon%~ (8)
+      WRITE_BYTE off+0xc target
+      WRITE_BYTE off+0xd target_count
+      WRITE_SHORT off+0xe range
+      WRITE_SHORT off+0x10 required_level
+      WRITE_LONG off+0x12 speed
+      WRITE_SHORT off+0x26 projectile
+    END
+  END
+END
+
+DEFINE_ACTION_FUNCTION ADD_SPLPROT_CONDITION
+	STR_VAR
+		splprot_stat=~*~
+		splprot_value=~*~
+		splprot_relation=~*~
+	RET
+		splprot_slot
+BEGIN
+	COPY_EXISTING ~splprot.2da~ ~override~
+		COUNT_2DA_ROWS 4 numrows
+		INSERT_2DA_ROW numrows 4 ~%numrows%        %splprot_stat%         %splprot_value%        %splprot_relation%~
+		splprot_slot=numrows
+END
+
+DEFINE_ACTION_FUNCTION ~ADD_AREA_ACTORS_2DA~
+	INT_VAR
+		addthroughscript=1
+	STR_VAR
+		variablename=~ME_Add_Creatures~
+		the2da=~~
+BEGIN
+	SILENT
+	COPY_EXISTING ~%the2da%.2da~ ~override~
+		COUNT_2DA_COLS numcolumns
+		COUNT_2DA_ROWS numcolumns numrows		
+		TEXT_SPRINT previousarea ~DEFA~
+		PATCH_IF addthroughscript=1 BEGIN
+			FOR (i = 0; i < numrows; ++i) BEGIN
+				READ_2DA_ENTRY i 0 numcolumns thearea
+				READ_2DA_ENTRY i 1 numcolumns thex
+				READ_2DA_ENTRY i 2 numcolumns they
+				READ_2DA_ENTRY i 4 numcolumns thefile
+				READ_2DA_ENTRY i 5 numcolumns theorientation
+				PATCH_IF !(FILE_EXISTS_IN_GAME ~%thearea%.bcs~) BEGIN
+					INNER_ACTION BEGIN
+<<<<<<<< .../%thearea%.baf
+>>>>>>>>
+COMPILE ~.../%thearea%.baf~ EVAL
+					END
+				END
+				PATCH_IF !(~%thearea%~ STRING_EQUAL_CASE ~%previousarea%~) BEGIN
+					INNER_ACTION BEGIN
+<<<<<<<< .../script.baf
+	
+IF
+	Global("%variablename%","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("%variablename%","MYAREA",1)
+END
+	
+>>>>>>>>
+	
+EXTEND_TOP ~%thearea%.bcs~ ~.../script.baf~ EVAL
+					END
+				END
+				INNER_ACTION BEGIN
+					COPY_EXISTING ~%thearea%.bcs~ ~override~
+						DECOMPILE_BCS_TO_BAF
+						REPLACE_TEXTUALLY CASE_INSENSITIVE ~SetGlobal(\"%variablename%\",\"MYAREA\",1)~ ~SetGlobal("%variablename%","MYAREA",1)
+	CreateCreatureImpassable("%thefile%",[%thex%.%they%],%theorientation%)~
+						COMPILE_BAF_TO_BCS
+				END
+				TEXT_SPRINT previousarea ~%thearea%~
+			END
+		END
+		ELSE BEGIN
+			FOR (i = 0; i < numrows; ++i) BEGIN
+				READ_2DA_ENTRY i 0 numcolumns thearea
+				READ_2DA_ENTRY i 1 numcolumns thex
+				READ_2DA_ENTRY i 2 numcolumns they
+				READ_2DA_ENTRY i 3 numcolumns thename
+				READ_2DA_ENTRY i 4 numcolumns thefile
+				READ_2DA_ENTRY i 5 numcolumns theorientation
+				INNER_ACTION BEGIN
+					COPY_EXISTING ~%thearea%.are~ ~override~
+						LPF fj_are_structure INT_VAR fj_loc_x=thex fj_loc_y=they fj_orientation=theorientation STR_VAR fj_structure_type=~actor~ fj_name= EVAL ~%thename%~ fj_cre_resref= EVAL ~%thefile%~ END
+				END
+				TEXT_SPRINT previousarea ~%thearea%~
+			END
+		END
+		BUT_ONLY_IF_IT_CHANGES
+	VERBOSE
+END
+
+DEFINE_PATCH_FUNCTION ~GET_2DA_ROW~
+	INT_VAR
+		numcolumns=0
+		match_column=0
+		found_it=0
+	STR_VAR
+		match=~DEFA~
+	RET
+		numcols
+		matched
+BEGIN
+		COUNT_2DA_ROWS numcolumns numrows
+		FOR (i = 0; i < numrows; ++i) BEGIN
+			READ_2DA_ENTRY i match_column numcolumns string_to_match
+			PATCH_IF (~%string_to_match%~ STRING_EQUAL_CASE ~%match%~) BEGIN
+				matched = i
+				found_it = 1
+				i = numrows
+			END
+		END
+		numcols = numcolumns
+		PATCH_IF (found_it = 0) BEGIN
+			PATCH_FAIL ~GET_2DA_ROW: Could not find a row that contains %match% in column %match_column%.~
+		END
+END
+
+END
+/*
+BEGIN ~BG1EE Tweaks~ REQUIRE_PREDICATE GAME_IS ~bgee~ ~~
+
+COPY_EXISTING ~ajanti.cre~ ~override~
+	WRITE_SHORT kit kitcavalier
+	SET_BG2_PROFICIENCY PROFICIENCYTWOHANDEDSWORD 0
+	SET_BG2_PROFICIENCY PROFICIENCYSWORDANDSHIELD 2
+	LPF ADD_CRE_EFFECT INT_VAR opcode=displayportraiticon target=2 timing=9 parameter2=30 resist_dispel=2 END
+	LPF ADD_CRE_EFFECT INT_VAR opcode=displayportraiticon target=2 timing=9 parameter2=52 resist_dispel=2 END
+	LPF ADD_CRE_EFFECT INT_VAR opcode=displayportraiticon target=2 timing=9 parameter2=37 resist_dispel=2 END
+
+COPY_EXISTING_REGEXP ~kagain.*.cre~ ~override~
+	SET_BG2_PROFICIENCY PROFICIENCYFLAILMORNINGSTAR 0
+	SET_BG2_PROFICIENCY PROFICIENCYCROSSBOW 0
+	SET_BG2_PROFICIENCY PROFICIENCYSWORDANDSHIELD 2
+
+COPY_EXISTING ~khalid.cre~ ~override~ ~khalid2.cre~ ~override~ ~khalid4.cre~ ~override~
+	SET_BG2_PROFICIENCY PROFICIENCYAXE 0
+	SET_BG2_PROFICIENCY PROFICIENCYLONGBOW 2
+
+COPY_EXISTING ~khalid6.cre~ ~override~ ~khalid7.cre~ ~override~
+	SET_BG2_PROFICIENCY PROFICIENCYAXE 0
+	SET_BG2_PROFICIENCY PROFICIENCYLONGSWORD 4
+
+COPY_EXISTING ~montar.cre~ ~override~ ~montar2.cre~ ~override~
+	WRITE_SHORT kit kitassassin
+	ADD_MEMORIZED_SPELL ~spcl423~ #0 ~innate~ (1)
+	SET_BG2_PROFICIENCY PROFICIENCYSLING 0
+	SET_BG2_PROFICIENCY PROFICIENCYCROSSBOW 2
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifydamage target=2 timing=9 parameter1=1 resist_dispel=2 END
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifythac0 target=2 timing=9 parameter1=1 resist_dispel=2 END
+
+COPY_EXISTING ~montar4.cre~ ~override~
+	WRITE_SHORT kit kitassassin
+	ADD_MEMORIZED_SPELL ~spcl423~ #0 ~innate~ (1)
+	SET_BG2_PROFICIENCY PROFICIENCYSLING 0
+	SET_BG2_PROFICIENCY PROFICIENCYAXE 0
+	SET_BG2_PROFICIENCY PROFICIENCYCROSSBOW 2
+	SET_BG2_PROFICIENCY PROFICIENCYSINGLEWEAPON 1
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifydamage target=2 timing=9 parameter1=1 resist_dispel=2 END
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifythac0 target=2 timing=9 parameter1=1 resist_dispel=2 END
+
+COPY_EXISTING ~montar6.cre~ ~override~
+	WRITE_SHORT kit kitassassin
+	ADD_MEMORIZED_SPELL ~spcl423~ #0 ~innate~ (2)
+	SET_BG2_PROFICIENCY PROFICIENCYSLING 0
+	SET_BG2_PROFICIENCY PROFICIENCYAXE 0
+	SET_BG2_PROFICIENCY PROFICIENCYCROSSBOW 2
+	SET_BG2_PROFICIENCY PROFICIENCYSINGLEWEAPON 1
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifydamage target=2 timing=9 parameter1=1 resist_dispel=2 END
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifythac0 target=2 timing=9 parameter1=1 resist_dispel=2 END
+
+COPY_EXISTING ~sharte.cre~ ~override~
+	SET_BG2_PROFICIENCY PROFICIENCYLONGSWORD 0
+	SET_BG2_PROFICIENCY PROFICIENCYDAGGER 0
+	SET_BG2_PROFICIENCY PROFICIENCYBASTARDSWORD 2
+	REPLACE_CRE_ITEM ~sw1h01~ #0 #0 #0 ~IDENTIFIED~ ~SHIELD~
+	REPLACE_CRE_ITEM ~sw1h01~ #0 #0 #0 ~IDENTIFIED~ ~WEAPON1~ EQUIP
+
+COPY_EXISTING ~sharte4.cre~ ~override~
+	SET_BG2_PROFICIENCY PROFICIENCYLONGSWORD 0
+	SET_BG2_PROFICIENCY PROFICIENCYDAGGER 0
+	SET_BG2_PROFICIENCY PROFICIENCYCROSSBOW 0
+	SET_BG2_PROFICIENCY PROFICIENCYBASTARDSWORD 2
+	SET_BG2_PROFICIENCY PROFICIENCY2WEAPON 3
+	REMOVE_CRE_ITEM ~bolt01~ ~xbow04~
+	REPLACE_CRE_ITEM ~sw1h01~ #0 #0 #0 ~IDENTIFIED~ ~SHIELD~
+	REPLACE_CRE_ITEM ~sw1h01~ #0 #0 #0 ~IDENTIFIED~ ~WEAPON1~ EQUIP
+
+COPY_EXISTING ~sharte6.cre~ ~override~
+	SET_BG2_PROFICIENCY PROFICIENCYLONGSWORD 0
+	SET_BG2_PROFICIENCY PROFICIENCYDAGGER 0
+	SET_BG2_PROFICIENCY PROFICIENCYCROSSBOW 0
+	SET_BG2_PROFICIENCY PROFICIENCYBASTARDSWORD 3
+	SET_BG2_PROFICIENCY PROFICIENCY2WEAPON 3
+	REMOVE_CRE_ITEM ~bolt01~ ~xbow04~
+	REPLACE_CRE_ITEM ~sw1h01~ #0 #0 #0 ~IDENTIFIED~ ~SHIELD~
+	REPLACE_CRE_ITEM ~sw1h01~ #0 #0 #0 ~IDENTIFIED~ ~WEAPON1~ EQUIP
+*/
+
+
+BEGIN ~Make quest experience divided among party members~
+
+COPY_EXISTING_REGEXP ~.*\.bcs~ ~override~
+	REPLACE_EVALUATE ~AC
+259OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 \([0-9]+\) 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+\([0-9]+\) 0 0 0 0\"\" \"\" AC
+AC
+259OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 \([0-9]+\) 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+\([0-9]+\) 0 0 0 0\"\" \"\" AC
+AC
+259OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 \([0-9]+\) 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+\([0-9]+\) 0 0 0 0\"\" \"\" AC
+AC
+259OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 \([0-9]+\) 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+\([0-9]+\) 0 0 0 0\"\" \"\" AC
+AC
+259OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 \([0-9]+\) 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+\([0-9]+\) 0 0 0 0\"\" \"\" AC
+AC
+259OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 \([0-9]+\) 0 0 0 0 \"\"OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+\([0-9]+\) 0 0 0 0\"\" \"\" AC~
+	BEGIN
+		SET result = MATCH2 + MATCH4 + MATCH6 + MATCH8 + MATCH10 + MATCH12
+	END
+		~AC
+164OB
+0 0 0 0 0 0 0 0 0 0 0 0 ""OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 ""OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 ""OB
+%result% 0 0 0 0"" "" AC~
+	IF ~259OB~
+
+COPY_EXISTING_REGEXP ~.*\.dlg~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_EVALUATE CASE_INSENSITIVE ~AddXPObject(.*,\([0-9]+\))
+AddXPObject(.*,\([0-9]+\))
+AddXPObject(.*,\([0-9]+\))
+AddXPObject(.*,\([0-9]+\))
+AddXPObject(.*,\([0-9]+\))
+AddXPObject(.*,\([0-9]+\))~
+		BEGIN
+			SET result = MATCH1 + MATCH2 + MATCH3 + MATCH4 + MATCH5 + MATCH6
+		END
+			~AddexperienceParty(%result%)~
+		END
+	IF ~AddXPObject~
+
+
+BEGIN ~Remove the limit of two proficiency points in a weapon at character creation~ REQUIRE_PREDICATE !(GAME_IS ~iwd2 pst pstee~) ~~
+
+COPY_EXISTING ~profsmax.2da~ ~override~
+	COUNT_2DA_ROWS 6 numrows
+	FOR (i = 0; i < numrows; ++i) BEGIN
+		SET_2DA_ENTRY i 1 6 ~5~
+		SET_2DA_ENTRY i 3 6 ~5~
+		SET_2DA_ENTRY i 4 6 ~5~
+	END
+
+
+BEGIN ~Allow Shamans to move while dancing~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~This game does not have shamans.~
+
+COPY_EXISTING ~spsh004.spl~ ~override~
+	LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete=movementratecheck END
+
+COPY_EXISTING ~clastext.2da~ ~override~
+	LPF GET_2DA_ROW STR_VAR match=~SHAMAN~ RET numcolumns=numcols row=matched END
+	READ_2DA_ENTRY row 4 numcolumns description_ref
+	GET_STRREF description_ref description_old
+	INNER_PATCH_SAVE description_new ~%description_old%~ BEGIN
+		REPLACE_TEXTUALLY ~cannot move, ~ ~cannot ~
+	END
+	INNER_ACTION BEGIN
+		STRING_SET_EVALUATE description_ref ~%description_new%~
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+
+BEGIN ~Clerics only~ REQUIRE_PREDICATE !(GAME_IS ~iwd2~) ~~
+SUBCOMPONENT ~Make it so that clerics and/or monks require only 160000 experience to get to level 9~
+
+COPY_EXISTING ~xplevel.2da~ ~override~
+	LPF GET_2DA_ROW STR_VAR match=~CLERIC~ RET numcolumns=numcols row=matched END
+	SET_2DA_ENTRY row 9 numcolumns ~160000~
+
+BEGIN ~Monks only~ REQUIRE_PREDICATE !(GAME_IS ~bg1 totsc iwd1 iwd2 how totlm pst pstee~) ~~
+SUBCOMPONENT ~Make it so that clerics and/or monks require only 160000 experience to get to level 9~
+
+COPY_EXISTING ~xplevel.2da~ ~override~
+	LPF GET_2DA_ROW STR_VAR match=~MONK~ RET numcolumns=numcols row=matched END
+	SET_2DA_ENTRY row 9 numcolumns ~160000~
+
+BEGIN ~Both Clerics and Monks~ REQUIRE_PREDICATE !(GAME_IS ~bg1 totsc iwd1 iwd2 how totlm pst pstee~) ~~
+SUBCOMPONENT ~Make it so that clerics and/or monks require only 160000 experience to get to level 9~
+
+COPY_EXISTING ~xplevel.2da~ ~override~
+	LPF GET_2DA_ROW STR_VAR match=~CLERIC~ RET numcolumns=numcols row=matched END
+	SET_2DA_ENTRY row 9 numcolumns ~160000~
+	LPF GET_2DA_ROW STR_VAR match=~MONK~ RET numcolumns=numcols row=matched END
+	SET_2DA_ENTRY row 9 numcolumns ~160000~
+
+BEGIN ~Give Monks a cooler Deflect Missiles ability~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~This ability only works on the EE engine.~
+
+COPY ~METweaks/DeflectMissiles~ ~override~
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~7eyes.2da~) BEGIN
+	COPY_EXISTING ~me7eyes.2da~ ~override/7eyes.2da~
+		REPLACE 99999 ~Deflected a missile~
+END ELSE BEGIN
+	COPY_EXISTING ~7eyes.2da~ ~override~
+		COUNT_2DA_COLS numcolumns
+		COUNT_2DA_ROWS numcolumns numrows
+		INSERT_2DA_ROW numrows numcolumns ~DEFLECTARROW 30         99999      12*0x800000 *           *           *            *            *          *          *          *~		
+		REPLACE 99999 ~Deflected a missile~
+END
+
+COPY_EXISTING ~clabmo01.2da~ ~override~
+	COUNT_2DA_COLS numcolumns_2
+	COUNT_2DA_ROWS numcolumns_2 numrows_2
+	INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABIL1    AP_MECL851  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+
+COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS 10 numrows
+	FOR (i = 1; i < numrows; ++i) BEGIN
+		READ_2DA_ENTRY i 8 10 class_of_kit
+		PATCH_IF class_of_kit=classmonk BEGIN
+			READ_2DA_ENTRY i 5 10 abilities_of_kit
+			INNER_ACTION BEGIN
+				COPY_EXISTING ~%abilities_of_kit%.2da~ ~override~
+					COUNT_2DA_COLS numcolumns_2
+					COUNT_2DA_ROWS numcolumns_2 numrows_2
+					INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABIL1    AP_MECL851  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+			END
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~clastext.2da~ ~override~
+	COUNT_2DA_ROWS 9 numrows
+	FOR (i = 1; i < numrows; ++i) BEGIN
+		READ_2DA_ENTRY i 0 9 class_name
+		PATCH_IF (~%class_name%~ STRING_EQUAL_CASE ~MONK~) BEGIN
+			READ_2DA_ENTRY i 4 9 description_ref
+			GET_STRREF description_ref description_old
+			INNER_PATCH_SAVE description_new ~%description_old%~ BEGIN
+				REPLACE_TEXTUALLY ~Deflect Missiles: \+1 bonus to AC vs. missile attacks every 3 levels.~ ~Deflect Missiles: The monk can deflect the first missile that would hit them each round. Deflected missiles will deal no missile damage to the monk, though any other damage that would be dealt by the missile will still hurt the monk.~
+			END
+			INNER_ACTION BEGIN
+				STRING_SET_EVALUATE description_ref ~%description_new%~
+			END
+			i = numrows
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING_REGEXP ~.*\.itm~ ~override~
+	LPF ADD_ITEM_EFFECT INT_VAR type=2 opcode=removeeffectsbyresource target=2 timing=9 resist_dispel=2 STR_VAR resource=~mecl851d~ END
+	BUT_ONLY_IF_IT_CHANGES
+
+BEGIN ~Give Rangers the Tracking ability (from Throne of Bhaal) starting at level 1~ REQUIRE_PREDICATE !(GAME_IS ~iwd how totlm iwdee iwd2~) ~Rangers already have the tracking ability in this game.~
+
+COPY ~METweaks/Tracking~ ~override~
+
+COPY_EXISTING ~clabrn01.2da~ ~override~
+	COUNT_2DA_COLS numcolumns_2
+	COUNT_2DA_ROWS numcolumns_2 numrows_2
+	INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABIL1    GA_SPCL922  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+
+COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS 10 numrows
+	FOR (i = 1; i < numrows; ++i) BEGIN
+		READ_2DA_ENTRY i 8 10 class_of_kit
+		PATCH_IF class_of_kit=classranger BEGIN
+			READ_2DA_ENTRY i 5 10 abilities_of_kit
+			INNER_ACTION BEGIN
+				COPY_EXISTING ~%abilities_of_kit%.2da~ ~override~
+					COUNT_2DA_COLS numcolumns_2
+					COUNT_2DA_ROWS numcolumns_2 numrows_2
+					INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABIL1    GA_SPCL922  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+			END
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~spcl922.spl~ ~override~
+	SAY NAME1 ~Tracking~
+	SAY UNIDENTIFIED_DESC ~Tracking
+With an intimate knowledge of <PRO_HISHER> surroundings and the creatures that live within them, a ranger can use the Tracking ability to give <PRO_HIMHER>self a general idea of what creatures are in an area and which direction they are. Red arrows at the edge of the screen will point in the general direction of the creatures in the area.~
+
+COPY_EXISTING ~tracking.2da~ ~override~
+	SET_2DA_ENTRY 1 0 1 ~0_-1~
+	IF_EXISTS
+
+BEGIN ~Power Up Ranger Charm Animal~
+
+COPY_EXISTING ~spcl311.spl~ ~override~ //Ranger Charm Animal
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=1 END
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=2 END
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=3 END
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=4 END
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=5 END
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=6 END
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=7 END
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=8 END
+	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=9 END
+	FOR (i = 1; i <= 10; ++i) BEGIN //Levels 1 to 10
+		LPF ALTER_SPELL_HEADER INT_VAR header=i min_level=i END
+		LPF ALTER_SPELL_EFFECT INT_VAR header=i savebonus=(0 - i) END
+	END
+		LPF ALTER_SPELL_EFFECT INT_VAR duration_high=3000 END
+	SAY UNIDENTIFIED_DESC ~Charm Animal
+This spell affects any single animal it is cast upon. The animal is allowed a Save vs. Spell to negate the effect. This save is made at a penalty of -1 per level of the ranger.
+
+If the spell's recipient fails its Saving Throw, it regards the caster as a trusted friend and ally to be heeded and protected. The caster may give it orders, and the charmed animal will carry them out as quickly as possible.
+
+If the caster harms—or attempts to harm—the charmed animal by some overt action, or if a Dispel Magic spell is cast upon the charmed animal, the spell is broken. Otherwise, the effect lasts for 10 hours. If two or more charms simultaneously affect a creature, the most recent charm takes precedence. Since this charm ability is not a form of magical mind control, the animal will not necessarily be hostile toward the ranger after the ability expires.~
+
+
+BEGIN ~Increase Wizard Slayer Magic Resistance~
+
+COPY_EXISTING ~spcl131.spl~ ~override~ //Wizard Slayer innate magic resistance
+	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode=modifymagicresistance parameter1=5 END
+
+
+BEGIN ~Make Assassin backstab multiplier improve faster~
+
+COPY_EXISTING ~backstab.2da~ ~override~
+	COUNT_2DA_COLS numcolumns
+	FOR (i = 0; i < 255; ++i) BEGIN
+		READ_2DA_ENTRY i 0 numcolumns kitname
+		PATCH_IF (~%kitname%~ STRING_EQUAL ~ASSASIN~) BEGIN
+			assassinrow=i
+			i=255
+		END
+	END
+	FOR (i = 5; i <= 7; ++i) BEGIN //Levels 4 to 6
+		SET_2DA_ENTRY assassinrow i numcolumns ~3~
+	END
+	FOR (i = 8; i <= 10; ++i) BEGIN //Levels 7 to 9
+		SET_2DA_ENTRY assassinrow i numcolumns ~4~
+	END
+	FOR (i = 11; i <= 13; ++i) BEGIN //Levels 10 to 12
+		SET_2DA_ENTRY assassinrow i numcolumns ~5~
+	END
+	FOR (i = 14; i <= 16; ++i) BEGIN //Levels 13 to 15
+		SET_2DA_ENTRY assassinrow i numcolumns ~6~
+	END
+	FOR (i = 17; i < numcolumns; ++i) BEGIN //Levels 16 and up
+		SET_2DA_ENTRY assassinrow i numcolumns ~7~
+	END
+
+
+BEGIN ~Allow cursed scrolls to be used on enemies~ REQUIRE_PREDICATE !(GAME_IS ~iwd how totlm iwdee~) ~There are no cursed scrolls in this game.~
+
+COPY_EXISTING_REGEXP ~scrl1[01234678].itm~ ~override~ //Cursed scrolls
+	LPF ALTER_ITEM_HEADER INT_VAR target=1 range=1 END
+	LPF ALTER_EFFECT INT_VAR check_headers=1 check_globals=0 match_target=self target=presettarget END
+
+
+BEGIN ~Make creatures take up less space~
+
+COPY_EXISTING_REGEXP ~[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F].ini~ ~override~
+	REPLACE_TEXTUALLY CASE_INSENSITIVE ~personal_space=~ ~personal_space ~
+	REPLACE_TEXTUALLY CASE_INSENSITIVE ~ellipse=~ ~ellipse ~
+	READ_2DA_ENTRY 1 1 2 ellipsesize
+	PATCH_IF (ellipsesize >= 16 AND ellipsesize <= 24) BEGIN
+		SET_2DA_ENTRY 2 1 2 ~3~
+	END ELSE BEGIN
+		PATCH_IF (ellipsesize = 32) BEGIN
+			SET_2DA_ENTRY 2 1 2 ~4~
+		END ELSE BEGIN
+			PATCH_IF (ellipsesize = 48 OR ellipsesize = 64) BEGIN
+				SET_2DA_ENTRY 2 1 2 ~5~
+			END
+		END
+	END
+	REPLACE_TEXTUALLY CASE_INSENSITIVE ~ellipse ~ ~ellipse=~
+	REPLACE_TEXTUALLY CASE_INSENSITIVE ~personal_space ~ ~personal_space=~
+	BUT_ONLY_IF_IT_CHANGES
+
+
+BEGIN ~Make enemies change their attack targets more quickly~
+
+COPY_EXISTING_REGEXP ~.*\.bcs~ ~override~
+	REPLACE_EVALUATE ~AC
+134OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+OB
+\([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \"\"OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+\([0-9]+\) 0 0 0 0\"\" \"\" AC~
+	BEGIN
+	END
+		~AC
+134OB
+0 0 0 0 0 0 0 0 0 0 0 0 ""OB
+OB
+%MATCH1% %MATCH2% %MATCH3% %MATCH4% %MATCH5% %MATCH6% %MATCH7% %MATCH8% %MATCH9% %MATCH10% %MATCH11% %MATCH12% ""OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 ""OB
+5 0 0 0 0"" "" AC~
+	IF ~AC
+134OB~
+
+COPY_EXISTING_REGEXP ~.*\.bcs~ ~override~
+	REPLACE_EVALUATE ~AC
+3OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+OB
+\([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \([0-9]+\) \"\"OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 \"\"OB
+0 0 0 0 0\"\" \"\" AC~
+	BEGIN
+	END
+		~AC
+134OB
+0 0 0 0 0 0 0 0 0 0 0 0 ""OB
+OB
+%MATCH1% %MATCH2% %MATCH3% %MATCH4% %MATCH5% %MATCH6% %MATCH7% %MATCH8% %MATCH9% %MATCH10% %MATCH11% %MATCH12% ""OB
+OB
+0 0 0 0 0 0 0 0 0 0 0 0 ""OB
+5 0 0 0 0"" "" AC~
+	IF ~AC
+3OB~
+
+
+BEGIN ~No Party Required area transitions~
+
+COPY_EXISTING_REGEXP ~.*\.are~ ~override~
+	READ_LONG 0x5c triggeroffset
+	READ_SHORT 0x5a triggernumber
+	FOR (i = 0; i < triggernumber; ++i) BEGIN
+		SET offset = triggeroffset + (i * 0xc4)
+		READ_SHORT (offset + 0x20) triggertype
+		PATCH_IF (triggertype = 2) BEGIN
+			READ_LONG (offset + 0x60) triggerflags
+			triggerflags&=0xFFFFFFFB
+			WRITE_LONG (offset + 0x60) triggerflags
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+
+BEGIN ~Make it possible to enter the Nashkel Mines through the back cave entrance~ REQUIRE_PREDICATE (GAME_IS ~bg1 totsc tutu tutu_totsc bgee~) ~Baldur's Gate 1 only.~
+
+COPY_EXISTING ~ar5000.are~ ~override~
+	LPF ALTER_AREA_REGION INT_VAR type=2 launch_x=1771 launch_y=822 info_point=0 flag_party_required=1 STR_VAR region_name=~Info5400~ destination_area=~ar5404~ entrance_name=~exit5000~ END
+	
+COPY_EXISTING ~ar5404.are~ ~override~
+	LPF fj_are_structure INT_VAR fj_loc_x=2873 fj_loc_y=694 fj_orientation=6 STR_VAR fj_structure_type=~entrance~ fj_name=~exit5000~ END
+	LPF ALTER_ACTOR_AT_POINT INT_VAR match_x_coord=2772 match_y_coord=543 x_coord=2255 y_coord=266 END
+	LPF ALTER_ACTOR_AT_POINT INT_VAR match_x_coord=2857 match_y_coord=713 x_coord=2411 y_coord=376 END
+
+
+BEGIN ~Make it possible to enter the catacombs beneath Candlekeep early~ REQUIRE_PREDICATE (GAME_IS ~tutu tutu_totsc bgee~) ~Baldur's Gate 1 only~
+
+COPY ~METweaks/EarlyCandlekeepDungeon~ ~override~
+
+STRING_SET_EVALUATE 20366 ~This door leads to the upper levels of the keep. From the looks of it, it is heavily warded. You will not be able to pass.~
+
+COPY_EXISTING ~ar2600.are~ ~override~ ~ar2626.are~ ~override~
+	LPF fj_are_structure INT_VAR
+fj_type=2
+fj_flags=0x4
+fj_cursor_idx=34
+fj_box_left=507
+fj_box_top=2792
+fj_box_right=593
+fj_box_bottom=2836
+fj_loc_x=550
+fj_loc_y=2814
+fj_vertex_0=(507 + (2792 << 16))
+fj_vertex_1=(593 + (2792 << 16))
+fj_vertex_2=(593 + (2836 << 16))
+fj_vertex_3=(507 + (2836 << 16))
+STR_VAR fj_structure_type=~region~ fj_name=~Door5506~ fj_destination_area=~AR5506~ fj_destination_name=~Exit2626~ END
+
+COPY_EXISTING ~ar5506.are~ ~override~
+	LPF fj_are_structure INT_VAR fj_loc_x=387 fj_loc_y=2000 fj_orientation=10 STR_VAR fj_structure_type=~entrance~ fj_name=~Exit2626~ END
+
+COPY_EXISTING ~ar2619.are~ ~override~
+	READ_LONG 0xc0 restencounteroffset
+	WRITE_ASCII (restencounteroffset + 0x48) ~GHAST~ #8
+	LPF ALTER_AREA_ACTOR STR_VAR actor_name=~Doppleganger~ script_specifics=~metethdi~ END
+	LPF ALTER_ACTOR_AT_POINT INT_VAR match_x_coord=513 match_y_coord=1200 x_coord=589 y_coord=1096 END
+
+COPY_EXISTING ~ar2615.are~ ~override~ ~ar2619.are~ ~override~ ~ar5506.are~ ~override~
+	LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~ME_CH6_Creatures~ fj_reg_script=~METETHEN~ END
+
+COPY_EXISTING
+~phlydi3.cre~ ~override~
+~dreppi3.cre~ ~override~
+~jondal3.cre~ ~override~
+~hull3.cre~ ~override~
+~karan3.cre~ ~override~
+~fuller3.cre~ ~override~
+~parda3.cre~ ~override~
+~reevor3.cre~ ~override~
+~winthr3.cre~ ~override~
+~gorion3.cre~ ~override~
+~tethto3.cre~ ~override~
+~elmins4.cre~ ~override~
+~deder3.cre~ ~override~
+~arkani3.cre~ ~override~
+~prat.cre~ ~override~
+~sakul.cre~ ~override~
+~bor.cre~ ~override~
+~tam.cre~ ~override~
+~diarmid.cre~ ~override~
+	LPF ADD_CRE_EFFECT INT_VAR opcode=imprisonment target=1 timing=9 parameter2=1 END
+
+COPY_EXISTING ~ar2613.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY CASE_SENSITIVE ~Global(\"MainQuestUpdate\",\"AR2613\",0)~ ~Global("MainQuestUpdate","AR2613",0)
+GlobalGT("Teth","GLOBAL",0)~
+	END
+
+
+BEGIN ~Creatures without infravision have -4 THAC0 at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~
+SUBCOMPONENT ~Make Infravision actually do something~
+
+COPY ~METweaks/Infravision~ ~override~
+
+COPY_EXISTING ~medarkne.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=modifythac0 target=4 timing=0 duration=3 resist_dispel=2 parameter1=(0 - 4) END
+
+OUTER_TEXT_SPRINT raceswithoutinfravision ~ 103 170 137 105 120 142 109 152 5 174 1 162 122 151 184 117 ~
+OUTER_TEXT_SPRINT classeswithinfravision ~ 106 148 147 144 ~
+
+COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
+	READ_BYTE race therace
+	READ_BYTE class theclass
+	PATCH_IF (~%raceswithoutinfravision%~ STRING_CONTAINS_REGEXP ~ %therace% ~) OR !(~%classeswithinfravision%~ STRING_CONTAINS_REGEXP ~ %theclass% ~) BEGIN
+		LPF ADD_CRE_EFFECT INT_VAR opcode=infravision target=1 timing=9 STR_VAR effsource=~meinfrav~ END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+<<<<<<<< .../script.baf
+
+IF
+	OR(5)
+		Race(Player1,ELF)
+		Race(Player1,DWARF)
+		Race(Player1,GNOME)
+		Race(Player1,HALF_ELF)
+		Race(Player1,HALFORC)
+	!StateCheck(Player1,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player1)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player2,ELF)
+		Race(Player2,DWARF)
+		Race(Player2,GNOME)
+		Race(Player2,HALF_ELF)
+		Race(Player2,HALFORC)
+	!StateCheck(Player2,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player2)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player3,ELF)
+		Race(Player3,DWARF)
+		Race(Player3,GNOME)
+		Race(Player3,HALF_ELF)
+		Race(Player3,HALFORC)
+	!StateCheck(Player3,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player3)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player4,ELF)
+		Race(Player4,DWARF)
+		Race(Player4,GNOME)
+		Race(Player4,HALF_ELF)
+		Race(Player4,HALFORC)
+	!StateCheck(Player4,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player4)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player5,ELF)
+		Race(Player5,DWARF)
+		Race(Player5,GNOME)
+		Race(Player5,HALF_ELF)
+		Race(Player5,HALFORC)
+	!StateCheck(Player5,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player5)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player6,ELF)
+		Race(Player6,DWARF)
+		Race(Player6,GNOME)
+		Race(Player6,HALF_ELF)
+		Race(Player6,HALFORC)
+	!StateCheck(Player6,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player6)
+END
+
+>>>>>>>>
+
+EXTEND_TOP ~baldur.bcs~ ~.../script.baf~ EVAL
+
+COPY_EXISTING_REGEXP ~.*\.are~ ~override~
+	READ_SHORT 0x48 theareatype
+	PATCH_IF ((theareatype BAND 0b00100000) = 0b00100000) BEGIN
+		LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~ME_Darkness~ fj_reg_script=~MEDARKNE~ END
+	END
+	ELSE BEGIN
+		PATCH_IF ((theareatype BAND 0b00000011) = 0b00000011) BEGIN
+			LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~ME_Darkness~ fj_reg_script=~MEDARKNI~ END
+		END	
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+BEGIN ~Creatures without infravision have reduced visual range at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~
+SUBCOMPONENT ~Make Infravision actually do something~
+
+COPY ~METweaks/Infravision~ ~override~
+
+COPY_EXISTING ~medarkne.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=modifyvisualrange target=4 timing=0 duration=3 resist_dispel=2 parameter1=11 parameter2=1 END
+
+OUTER_TEXT_SPRINT raceswithoutinfravision ~ 103 170 137 105 120 142 109 152 5 174 1 162 122 151 184 117 ~
+OUTER_TEXT_SPRINT classeswithinfravision ~ 106 148 147 144 ~
+
+COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
+	READ_BYTE race therace
+	READ_BYTE class theclass
+	PATCH_IF (~%raceswithoutinfravision%~ STRING_CONTAINS_REGEXP ~ %therace% ~) OR !(~%classeswithinfravision%~ STRING_CONTAINS_REGEXP ~ %theclass% ~) BEGIN
+		LPF ADD_CRE_EFFECT INT_VAR opcode=infravision target=1 timing=9 STR_VAR effsource=~meinfrav~ END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+<<<<<<<< .../script.baf
+
+IF
+	OR(5)
+		Race(Player1,ELF)
+		Race(Player1,DWARF)
+		Race(Player1,GNOME)
+		Race(Player1,HALF_ELF)
+		Race(Player1,HALFORC)
+	!StateCheck(Player1,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player1)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player2,ELF)
+		Race(Player2,DWARF)
+		Race(Player2,GNOME)
+		Race(Player2,HALF_ELF)
+		Race(Player2,HALFORC)
+	!StateCheck(Player2,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player2)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player3,ELF)
+		Race(Player3,DWARF)
+		Race(Player3,GNOME)
+		Race(Player3,HALF_ELF)
+		Race(Player3,HALFORC)
+	!StateCheck(Player3,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player3)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player4,ELF)
+		Race(Player4,DWARF)
+		Race(Player4,GNOME)
+		Race(Player4,HALF_ELF)
+		Race(Player4,HALFORC)
+	!StateCheck(Player4,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player4)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player5,ELF)
+		Race(Player5,DWARF)
+		Race(Player5,GNOME)
+		Race(Player5,HALF_ELF)
+		Race(Player5,HALFORC)
+	!StateCheck(Player5,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player5)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player6,ELF)
+		Race(Player6,DWARF)
+		Race(Player6,GNOME)
+		Race(Player6,HALF_ELF)
+		Race(Player6,HALFORC)
+	!StateCheck(Player6,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player6)
+END
+
+>>>>>>>>
+
+EXTEND_TOP ~baldur.bcs~ ~.../script.baf~ EVAL
+
+COPY_EXISTING_REGEXP ~.*\.are~ ~override~
+	READ_SHORT 0x48 theareatype
+	PATCH_IF ((theareatype BAND 0b00100000) = 0b00100000) BEGIN
+		LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~ME_Darkness~ fj_reg_script=~MEDARKNE~ END
+	END
+	ELSE BEGIN
+		PATCH_IF ((theareatype BAND 0b00000011) = 0b00000011) BEGIN
+			LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~ME_Darkness~ fj_reg_script=~MEDARKNI~ END
+		END	
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+BEGIN ~Both 1 and 2~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~
+SUBCOMPONENT ~Make Infravision actually do something~
+
+COPY ~METweaks/Infravision~ ~override~
+
+COPY_EXISTING ~medarkne.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=modifythac0 target=4 timing=0 duration=3 resist_dispel=2 parameter1=(0 - 4) END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=modifyvisualrange target=4 timing=0 duration=3 resist_dispel=2 parameter1=11 parameter2=1 END
+
+OUTER_TEXT_SPRINT raceswithoutinfravision ~ 103 170 137 105 120 142 109 152 5 174 1 162 122 151 184 117 ~
+OUTER_TEXT_SPRINT classeswithinfravision ~ 106 148 147 144 ~
+
+COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
+	READ_BYTE race therace
+	READ_BYTE class theclass
+	PATCH_IF (~%raceswithoutinfravision%~ STRING_CONTAINS_REGEXP ~ %therace% ~) OR !(~%classeswithinfravision%~ STRING_CONTAINS_REGEXP ~ %theclass% ~) BEGIN
+		LPF ADD_CRE_EFFECT INT_VAR opcode=infravision target=1 timing=9 STR_VAR effsource=~meinfrav~ END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+<<<<<<<< .../script.baf
+
+IF
+	OR(5)
+		Race(Player1,ELF)
+		Race(Player1,DWARF)
+		Race(Player1,GNOME)
+		Race(Player1,HALF_ELF)
+		Race(Player1,HALFORC)
+	!StateCheck(Player1,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player1)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player2,ELF)
+		Race(Player2,DWARF)
+		Race(Player2,GNOME)
+		Race(Player2,HALF_ELF)
+		Race(Player2,HALFORC)
+	!StateCheck(Player2,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player2)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player3,ELF)
+		Race(Player3,DWARF)
+		Race(Player3,GNOME)
+		Race(Player3,HALF_ELF)
+		Race(Player3,HALFORC)
+	!StateCheck(Player3,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player3)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player4,ELF)
+		Race(Player4,DWARF)
+		Race(Player4,GNOME)
+		Race(Player4,HALF_ELF)
+		Race(Player4,HALFORC)
+	!StateCheck(Player4,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player4)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player5,ELF)
+		Race(Player5,DWARF)
+		Race(Player5,GNOME)
+		Race(Player5,HALF_ELF)
+		Race(Player5,HALFORC)
+	!StateCheck(Player5,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player5)
+		Continue()
+END
+
+IF
+	OR(5)
+		Race(Player6,ELF)
+		Race(Player6,DWARF)
+		Race(Player6,GNOME)
+		Race(Player6,HALF_ELF)
+		Race(Player6,HALFORC)
+	!StateCheck(Player6,STATE_INFRAVISION)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEINFRAV",Player6)
+END
+
+>>>>>>>>
+
+EXTEND_TOP ~baldur.bcs~ ~.../script.baf~ EVAL
+
+COPY_EXISTING_REGEXP ~.*\.are~ ~override~
+	READ_SHORT 0x48 theareatype
+	PATCH_IF ((theareatype BAND 0b00100000) = 0b00100000) BEGIN
+		LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~ME_Darkness~ fj_reg_script=~MEDARKNE~ END
+	END
+	ELSE BEGIN
+		PATCH_IF ((theareatype BAND 0b00000011) = 0b00000011) BEGIN
+			LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~ME_Darkness~ fj_reg_script=~MEDARKNI~ END
+		END	
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+
+BEGIN ~Increase the visual range and movement speed of all creatures in the game (including party members) significantly~
+
+COPY ~METweaks/ExtendedVisualRange~ ~override~
+
+COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifymovementrate2 target=1 timing=9 parameter1=300 parameter2=2 resist_dispel=2 STR_VAR effsource=~mealt01~ END
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifyvisualrange target=1 timing=9 parameter1=15 resist_dispel=2 STR_VAR effsource=~mealt01~ END
+	LPF ADD_CRE_EFFECT INT_VAR opcode=setspellstate target=1 timing=9 parameter2=236 resist_dispel=2 STR_VAR effsource=~mealt01~ END
+
+<<<<<<<< .../script.baf
+
+IF
+	!CheckSpellState(Player1,236)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEALT01",Player1)
+		Continue()
+END
+
+IF
+	!CheckSpellState(Player2,236)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEALT01",Player2)
+		Continue()
+END
+
+IF
+	!CheckSpellState(Player3,236)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEALT01",Player3)
+		Continue()
+END
+
+IF
+	!CheckSpellState(Player4,236)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEALT01",Player4)
+		Continue()
+END
+
+IF
+	!CheckSpellState(Player5,236)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEALT01",Player5)
+		Continue()
+END
+
+IF
+	!CheckSpellState(Player6,236)
+THEN
+	RESPONSE #100
+		ReallyForceSpellRES("MEALT01",Player6)
+END
+
+>>>>>>>>
+
+EXTEND_TOP ~baldur.bcs~ ~.../script.baf~ EVAL
