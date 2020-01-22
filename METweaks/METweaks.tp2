@@ -2449,11 +2449,11 @@ COPY_EXISTING_REGEXP ~.*\.eff~ ~override~
 	PATCH_IF theopcode = wingbuffet BEGIN
 		READ_LONG 0x20 theparameter2
 		PATCH_IF theparameter2 = 2 BEGIN
-			thefilename = SOURCE_RES
+			TEXT_SPRINT thefilename ~%SOURCE_RES%~
 			INNER_ACTION BEGIN
 				COPY_EXISTING_REGEXP ~.*\.spl~ ~override~ ~.*\.itm~ ~override~
-					LPF CLONE_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 match_opcode=melee_hit_effect STR_VAR match_resource= EVAL ~%thefilename%~ resource=~meknockb~ insert=~below~ END
-					LPF CLONE_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 match_opcode=ranged_hit_effect STR_VAR match_resource= EVAL ~%thefilename%~ resource=~meknockb~ insert=~below~ END
+					LPF CLONE_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 match_opcode=meleehiteffect STR_VAR match_resource= EVAL ~%thefilename%~ resource=~meknockb~ insert=~below~ END
+					LPF CLONE_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 match_opcode=rangedhiteffect STR_VAR match_resource= EVAL ~%thefilename%~ resource=~meknockb~ insert=~below~ END
 					BUT_ONLY_IF_IT_CHANGES
 			END
 		END
