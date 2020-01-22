@@ -1,5 +1,5 @@
 BACKUP ~METweaks/backup~
-AUTHOR ~ms98862n@pace.edu~
+AUTHOR ~OlvynChuru~
 
 ALWAYS
 OUTER_PATCH alltheconstants BEGIN
@@ -535,6 +535,7 @@ OUTER_PATCH alltheconstants BEGIN
 	removeinvisibility1=47
 	modifywisdom=49
 	colorpulse=50
+	modifyanimation=53
 	modifybasethac0=54
 	slay=55
 	dispeleffects=58
@@ -1321,7 +1322,7 @@ COMPILE ~.../%thearea%.baf~ EVAL
 				PATCH_IF !(~%thearea%~ STRING_EQUAL_CASE ~%previousarea%~) BEGIN
 					INNER_ACTION BEGIN
 <<<<<<<< .../script.baf
-	
+
 IF
 	Global("%variablename%","MYAREA",0)
 THEN
@@ -1471,7 +1472,7 @@ COPY_EXISTING ~sharte6.cre~ ~override~
 */
 
 
-BEGIN ~Make quest experience divided among party members~
+BEGIN ~Make quest experience divided among party members~  DESIGNATED 200
 
 COPY_EXISTING_REGEXP ~.*\.bcs~ ~override~
 	REPLACE_EVALUATE ~AC
@@ -1551,7 +1552,7 @@ AddXPObject(.*,\([0-9]+\))~
 	IF ~AddXPObject~
 
 
-BEGIN ~Remove the limit of two proficiency points in a weapon at character creation~ REQUIRE_PREDICATE !(GAME_IS ~iwd2 pst pstee~) ~~
+BEGIN ~Remove the limit of two proficiency points in a weapon at character creation~ REQUIRE_PREDICATE !(GAME_IS ~iwd2 pst pstee~) ~~  DESIGNATED 400
 
 COPY_EXISTING ~profsmax.2da~ ~override~
 	COUNT_2DA_ROWS 6 numrows
@@ -1562,7 +1563,7 @@ COPY_EXISTING ~profsmax.2da~ ~override~
 	END
 
 
-BEGIN ~Allow Shamans to move while dancing~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~This game does not have shamans.~
+BEGIN ~Allow Shamans to move while dancing~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~This game does not have shamans.~  DESIGNATED 600
 
 COPY_EXISTING ~spsh004.spl~ ~override~
 	LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete=movementratecheck END
@@ -1580,21 +1581,21 @@ COPY_EXISTING ~clastext.2da~ ~override~
 	BUT_ONLY_IF_IT_CHANGES
 
 
-BEGIN ~Clerics only~ REQUIRE_PREDICATE !(GAME_IS ~iwd2~) ~~
+BEGIN ~Clerics only~ REQUIRE_PREDICATE !(GAME_IS ~iwd2~) ~~  DESIGNATED 800
 SUBCOMPONENT ~Make it so that clerics and/or monks require only 160000 experience to get to level 9~
 
 COPY_EXISTING ~xplevel.2da~ ~override~
 	LPF GET_2DA_ROW STR_VAR match=~CLERIC~ RET numcolumns=numcols row=matched END
 	SET_2DA_ENTRY row 9 numcolumns ~160000~
 
-BEGIN ~Monks only~ REQUIRE_PREDICATE !(GAME_IS ~bg1 totsc iwd1 iwd2 how totlm pst pstee~) ~~
+BEGIN ~Monks only~ REQUIRE_PREDICATE !(GAME_IS ~bg1 totsc iwd1 iwd2 how totlm pst pstee~) ~~  DESIGNATED 805
 SUBCOMPONENT ~Make it so that clerics and/or monks require only 160000 experience to get to level 9~
 
 COPY_EXISTING ~xplevel.2da~ ~override~
 	LPF GET_2DA_ROW STR_VAR match=~MONK~ RET numcolumns=numcols row=matched END
 	SET_2DA_ENTRY row 9 numcolumns ~160000~
 
-BEGIN ~Both Clerics and Monks~ REQUIRE_PREDICATE !(GAME_IS ~bg1 totsc iwd1 iwd2 how totlm pst pstee~) ~~
+BEGIN ~Both Clerics and Monks~ REQUIRE_PREDICATE !(GAME_IS ~bg1 totsc iwd1 iwd2 how totlm pst pstee~) ~~  DESIGNATED 810
 SUBCOMPONENT ~Make it so that clerics and/or monks require only 160000 experience to get to level 9~
 
 COPY_EXISTING ~xplevel.2da~ ~override~
@@ -1603,7 +1604,7 @@ COPY_EXISTING ~xplevel.2da~ ~override~
 	LPF GET_2DA_ROW STR_VAR match=~MONK~ RET numcolumns=numcols row=matched END
 	SET_2DA_ENTRY row 9 numcolumns ~160000~
 
-BEGIN ~Give Monks a cooler Deflect Missiles ability~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~This ability only works on the EE engine.~
+BEGIN ~Give Monks a cooler Deflect Missiles ability~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~This ability only works on the EE engine.~  DESIGNATED 1000
 
 COPY ~METweaks/DeflectMissiles~ ~override~
 
@@ -1661,7 +1662,7 @@ COPY_EXISTING_REGEXP ~.*\.itm~ ~override~
 	LPF ADD_ITEM_EFFECT INT_VAR type=2 opcode=removeeffectsbyresource target=2 timing=9 resist_dispel=2 STR_VAR resource=~mecl851d~ END
 	BUT_ONLY_IF_IT_CHANGES
 
-BEGIN ~Give Rangers the Tracking ability (from Throne of Bhaal) starting at level 1~ REQUIRE_PREDICATE !(GAME_IS ~iwd how totlm iwdee iwd2~) ~Rangers already have the tracking ability in this game.~
+BEGIN ~Give Rangers the Tracking ability (from Throne of Bhaal) starting at level 1~ REQUIRE_PREDICATE !(GAME_IS ~iwd how totlm iwdee iwd2~) ~Rangers already have the tracking ability in this game.~  DESIGNATED 1200
 
 COPY ~METweaks/Tracking~ ~override~
 
@@ -1695,7 +1696,7 @@ COPY_EXISTING ~tracking.2da~ ~override~
 	SET_2DA_ENTRY 1 0 1 ~0_-1~
 	IF_EXISTS
 
-BEGIN ~Power Up Ranger Charm Animal~
+BEGIN ~Power Up Ranger Charm Animal~  DESIGNATED 1400
 
 COPY_EXISTING ~spcl311.spl~ ~override~ //Ranger Charm Animal
 	LPF ADD_SPELL_HEADER INT_VAR copy_header=1 insert_point=1 END
@@ -1720,13 +1721,13 @@ If the spell's recipient fails its Saving Throw, it regards the caster as a trus
 If the caster harms—or attempts to harm—the charmed animal by some overt action, or if a Dispel Magic spell is cast upon the charmed animal, the spell is broken. Otherwise, the effect lasts for 10 hours. If two or more charms simultaneously affect a creature, the most recent charm takes precedence. Since this charm ability is not a form of magical mind control, the animal will not necessarily be hostile toward the ranger after the ability expires.~
 
 
-BEGIN ~Increase Wizard Slayer Magic Resistance~
+BEGIN ~Increase Wizard Slayer Magic Resistance~  DESIGNATED 1600
 
 COPY_EXISTING ~spcl131.spl~ ~override~ //Wizard Slayer innate magic resistance
 	LPF ALTER_SPELL_EFFECT INT_VAR match_opcode=modifymagicresistance parameter1=5 END
 
 
-BEGIN ~Make Assassin backstab multiplier improve faster~
+BEGIN ~Make Assassin backstab multiplier improve faster~ FORBID_COMPONENT ~HighPower.tp2~ ~1992~ ~High Power Baldur's Gate already does this.~  DESIGNATED 1800
 
 COPY_EXISTING ~backstab.2da~ ~override~
 	COUNT_2DA_COLS numcolumns
@@ -1754,14 +1755,14 @@ COPY_EXISTING ~backstab.2da~ ~override~
 	END
 
 
-BEGIN ~Allow cursed scrolls to be used on enemies~ REQUIRE_PREDICATE !(GAME_IS ~iwd how totlm iwdee~) ~There are no cursed scrolls in this game.~
+BEGIN ~Allow cursed scrolls to be used on enemies~ REQUIRE_PREDICATE !(GAME_IS ~iwd how totlm iwdee~) ~There are no cursed scrolls in this game.~ FORBID_COMPONENT ~HighPower.tp2~ ~0~ ~High Power Baldur's Gate already does this.~  DESIGNATED 2000
 
 COPY_EXISTING_REGEXP ~scrl1[01234678].itm~ ~override~ //Cursed scrolls
 	LPF ALTER_ITEM_HEADER INT_VAR target=1 range=1 END
 	LPF ALTER_EFFECT INT_VAR check_headers=1 check_globals=0 match_target=self target=presettarget END
 
 
-BEGIN ~Make creatures take up less space~
+BEGIN ~Make creatures take up less space~ FORBID_COMPONENT ~BetterHOF.tp2~ ~0~ ~Improved Heart of Fury Mode already does this.~ DESIGNATED 2200
 
 COPY_EXISTING_REGEXP ~[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F].ini~ ~override~
 	REPLACE_TEXTUALLY CASE_INSENSITIVE ~personal_space=~ ~personal_space ~
@@ -1783,7 +1784,7 @@ COPY_EXISTING_REGEXP ~[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F].ini~ ~overrid
 	BUT_ONLY_IF_IT_CHANGES
 
 
-BEGIN ~Make enemies change their attack targets more quickly~
+BEGIN ~Make enemies change their attack targets more quickly~ DESIGNATED 2400
 
 COPY_EXISTING_REGEXP ~.*\.bcs~ ~override~
 	REPLACE_EVALUATE ~AC
@@ -1830,7 +1831,7 @@ OB
 3OB~
 
 
-BEGIN ~No Party Required area transitions~
+BEGIN ~No Party Required area transitions~ DESIGNATED 2600
 
 COPY_EXISTING_REGEXP ~.*\.are~ ~override~
 	READ_LONG 0x5c triggeroffset
@@ -1847,7 +1848,7 @@ COPY_EXISTING_REGEXP ~.*\.are~ ~override~
 	BUT_ONLY_IF_IT_CHANGES
 
 
-BEGIN ~Make it possible to enter the Nashkel Mines through the back cave entrance~ REQUIRE_PREDICATE (GAME_IS ~bg1 totsc tutu tutu_totsc bgee~) ~Baldur's Gate 1 only.~
+BEGIN ~Make it possible to enter the Nashkel Mines through the back cave entrance~ REQUIRE_PREDICATE (GAME_IS ~bg1 totsc tutu tutu_totsc bgee~) ~Baldur's Gate 1 only.~ DESIGNATED 2800
 
 COPY_EXISTING ~ar5000.are~ ~override~
 	LPF ALTER_AREA_REGION INT_VAR type=2 launch_x=1771 launch_y=822 info_point=0 flag_party_required=1 STR_VAR region_name=~Info5400~ destination_area=~ar5404~ entrance_name=~exit5000~ END
@@ -1858,7 +1859,7 @@ COPY_EXISTING ~ar5404.are~ ~override~
 	LPF ALTER_ACTOR_AT_POINT INT_VAR match_x_coord=2857 match_y_coord=713 x_coord=2411 y_coord=376 END
 
 
-BEGIN ~Make it possible to enter the catacombs beneath Candlekeep early~ REQUIRE_PREDICATE (GAME_IS ~tutu tutu_totsc bgee~) ~Baldur's Gate 1 only~
+BEGIN ~Make it possible to enter the catacombs beneath Candlekeep early~ REQUIRE_PREDICATE (GAME_IS ~tutu tutu_totsc bgee~) ~Baldur's Gate 1 only~ DESIGNATED 3000
 
 COPY ~METweaks/EarlyCandlekeepDungeon~ ~override~
 
@@ -1921,8 +1922,32 @@ COPY_EXISTING ~ar2613.bcs~ ~override~
 GlobalGT("Teth","GLOBAL",0)~
 	END
 
+BEGIN ~Make it so the Jacil and Wiven encounters aren't replaced by other quests~ REQUIRE_PREDICATE (GAME_IS ~tutu tutu_totsc bgee~) ~Baldur's Gate 1 only~ DESIGNATED 3100
 
-BEGIN ~Creatures without infravision have -4 THAC0 at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~
+COPY ~METweaks/FixReplacedEncounters~ ~override~
+
+COPY_EXISTING ~ar0307.are~ ~override~ //Merchant's League Counting House, first floor
+	LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~Jacil Spawn~ fj_reg_script=~MEAR0307~ END
+	UNLESS ~MEAR0307~
+
+COPY_EXISTING ~ar1101.are~ ~override~ //Baldur's Gate southwest, building where you normally fight Wiven's thieves
+	READ_LONG 0x54 actoroffset
+	READ_SHORT 0x58 actornumber
+	FOR (i = 0; i < actornumber; ++i) BEGIN
+		SET me_off = actoroffset + (i * actorsize)
+		READ_ASCII (me_off + 0x80) thefile
+		PATCH_IF (~%thefile%~ STRING_EQUAL_CASE ~WIVEN~) BEGIN
+			LPF fj_are_structure INT_VAR fj_delete_mode=i STR_VAR fj_structure_type=~actor~ END
+			i = actornumber
+		END
+	END
+	IF ~WIVEN~
+
+COPY_EXISTING ~ar0200.are~ ~override~ //Baldur's Gate, north area with Ducal Palace
+	LPF fj_are_structure INT_VAR fj_loc_x=3300 fj_loc_y=2500 STR_VAR fj_structure_type=~actor~ fj_name=~Wiven~ fj_cre_resref=~WIVEN~ END
+	UNLESS ~Wiven~
+
+BEGIN ~Creatures without infravision have -4 THAC0 at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~ DESIGNATED 3200
 SUBCOMPONENT ~Make Infravision actually do something~
 
 COPY ~METweaks/Infravision~ ~override~
@@ -1944,6 +1969,7 @@ COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
 <<<<<<<< .../script.baf
 
 IF
+	Exists(Player1)
 	OR(5)
 		Race(Player1,ELF)
 		Race(Player1,DWARF)
@@ -1958,6 +1984,7 @@ THEN
 END
 
 IF
+	Exists(Player2)
 	OR(5)
 		Race(Player2,ELF)
 		Race(Player2,DWARF)
@@ -1972,6 +1999,7 @@ THEN
 END
 
 IF
+	Exists(Player3)
 	OR(5)
 		Race(Player3,ELF)
 		Race(Player3,DWARF)
@@ -1986,6 +2014,7 @@ THEN
 END
 
 IF
+	Exists(Player4)
 	OR(5)
 		Race(Player4,ELF)
 		Race(Player4,DWARF)
@@ -2000,6 +2029,7 @@ THEN
 END
 
 IF
+	Exists(Player5)
 	OR(5)
 		Race(Player5,ELF)
 		Race(Player5,DWARF)
@@ -2014,6 +2044,7 @@ THEN
 END
 
 IF
+	Exists(Player6)
 	OR(5)
 		Race(Player6,ELF)
 		Race(Player6,DWARF)
@@ -2042,7 +2073,7 @@ COPY_EXISTING_REGEXP ~.*\.are~ ~override~
 	END
 	BUT_ONLY_IF_IT_CHANGES
 
-BEGIN ~Creatures without infravision have reduced visual range at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~
+BEGIN ~Creatures without infravision have reduced visual range at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~ DESIGNATED 3205
 SUBCOMPONENT ~Make Infravision actually do something~
 
 COPY ~METweaks/Infravision~ ~override~
@@ -2064,6 +2095,7 @@ COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
 <<<<<<<< .../script.baf
 
 IF
+	Exists(Player1)
 	OR(5)
 		Race(Player1,ELF)
 		Race(Player1,DWARF)
@@ -2078,6 +2110,7 @@ THEN
 END
 
 IF
+	Exists(Player2)
 	OR(5)
 		Race(Player2,ELF)
 		Race(Player2,DWARF)
@@ -2092,6 +2125,7 @@ THEN
 END
 
 IF
+	Exists(Player3)
 	OR(5)
 		Race(Player3,ELF)
 		Race(Player3,DWARF)
@@ -2106,6 +2140,7 @@ THEN
 END
 
 IF
+	Exists(Player4)
 	OR(5)
 		Race(Player4,ELF)
 		Race(Player4,DWARF)
@@ -2120,6 +2155,7 @@ THEN
 END
 
 IF
+	Exists(Player5)
 	OR(5)
 		Race(Player5,ELF)
 		Race(Player5,DWARF)
@@ -2134,6 +2170,7 @@ THEN
 END
 
 IF
+	Exists(Player6)
 	OR(5)
 		Race(Player6,ELF)
 		Race(Player6,DWARF)
@@ -2162,7 +2199,7 @@ COPY_EXISTING_REGEXP ~.*\.are~ ~override~
 	END
 	BUT_ONLY_IF_IT_CHANGES
 
-BEGIN ~Both 1 and 2~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~
+BEGIN ~Both 1 and 2~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~ DESIGNATED 3210
 SUBCOMPONENT ~Make Infravision actually do something~
 
 COPY ~METweaks/Infravision~ ~override~
@@ -2185,6 +2222,7 @@ COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
 <<<<<<<< .../script.baf
 
 IF
+	Exists(Player1)
 	OR(5)
 		Race(Player1,ELF)
 		Race(Player1,DWARF)
@@ -2192,6 +2230,7 @@ IF
 		Race(Player1,HALF_ELF)
 		Race(Player1,HALFORC)
 	!StateCheck(Player1,STATE_INFRAVISION)
+
 THEN
 	RESPONSE #100
 		ReallyForceSpellRES("MEINFRAV",Player1)
@@ -2199,6 +2238,7 @@ THEN
 END
 
 IF
+	Exists(Player2)
 	OR(5)
 		Race(Player2,ELF)
 		Race(Player2,DWARF)
@@ -2206,6 +2246,7 @@ IF
 		Race(Player2,HALF_ELF)
 		Race(Player2,HALFORC)
 	!StateCheck(Player2,STATE_INFRAVISION)
+
 THEN
 	RESPONSE #100
 		ReallyForceSpellRES("MEINFRAV",Player2)
@@ -2213,6 +2254,7 @@ THEN
 END
 
 IF
+	Exists(Player3)
 	OR(5)
 		Race(Player3,ELF)
 		Race(Player3,DWARF)
@@ -2227,6 +2269,7 @@ THEN
 END
 
 IF
+	Exists(Player4)
 	OR(5)
 		Race(Player4,ELF)
 		Race(Player4,DWARF)
@@ -2241,6 +2284,7 @@ THEN
 END
 
 IF
+	Exists(Player5)
 	OR(5)
 		Race(Player5,ELF)
 		Race(Player5,DWARF)
@@ -2255,6 +2299,7 @@ THEN
 END
 
 IF
+	Exists(Player6)
 	OR(5)
 		Race(Player6,ELF)
 		Race(Player6,DWARF)
@@ -2283,11 +2328,49 @@ COPY_EXISTING_REGEXP ~.*\.are~ ~override~
 	END
 	BUT_ONLY_IF_IT_CHANGES
 
+BEGIN ~Double the movement rate~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~~ DESIGNATED 3400
+SUBCOMPONENT ~Increase the speed of all creatures in the game (including party members)~
 
-BEGIN ~Increase the visual range and movement speed of all creatures in the game (including party members) significantly~
+COPY_EXISTING_REGEXP ~[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F].ini~ ~override~
+	REPLACE_EVALUATE ~move_scale.*=.*\([0-9]+\)~
+	BEGIN
+		SET new_move_scale = MATCH1 * 2
+	END
+		~move_scale=%new_move_scale%~
 
-COPY ~METweaks/ExtendedVisualRange~ ~override~
+BEGIN ~Triple the movement rate~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~~ DESIGNATED 3405
+SUBCOMPONENT ~Increase the speed of all creatures in the game (including party members)~
 
+COPY_EXISTING_REGEXP ~[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F].ini~ ~override~
+	REPLACE_EVALUATE ~move_scale.*=.*\([0-9]+\)~
+	BEGIN
+		SET new_move_scale = MATCH1 * 3
+	END
+		~move_scale=%new_move_scale%~
+
+BEGIN ~Quadruple the movement rate~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~~ DESIGNATED 3410
+SUBCOMPONENT ~Increase the speed of all creatures in the game (including party members)~
+
+COPY_EXISTING_REGEXP ~[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F].ini~ ~override~
+	REPLACE_EVALUATE ~move_scale.*=.*\([0-9]+\)~
+	BEGIN
+		SET new_move_scale = MATCH1 * 4
+	END
+		~move_scale=%new_move_scale%~
+
+BEGIN ~Set the movement rate to the maximum~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~~ DESIGNATED 3415
+SUBCOMPONENT ~Increase the speed of all creatures in the game (including party members)~
+
+COPY_EXISTING_REGEXP ~[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F].ini~ ~override~
+	REPLACE_EVALUATE ~move_scale.*=.*\([0-9]+\)~
+	BEGIN
+		PATCH_IF MATCH1 > 0 BEGIN
+			SET new_move_scale = 255
+		END
+	END
+		~move_scale=%new_move_scale%~
+
+/*
 COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
 	LPF ADD_CRE_EFFECT INT_VAR opcode=modifymovementrate2 target=1 timing=9 parameter1=300 parameter2=2 resist_dispel=2 STR_VAR effsource=~mealt01~ END
 	LPF ADD_CRE_EFFECT INT_VAR opcode=modifyvisualrange target=1 timing=9 parameter1=15 resist_dispel=2 STR_VAR effsource=~mealt01~ END
@@ -2345,3 +2428,160 @@ END
 >>>>>>>>
 
 EXTEND_TOP ~baldur.bcs~ ~.../script.baf~ EVAL
+*/
+
+BEGIN ~Implement a different kind of chunked death animation~ DESIGNATED 3600
+
+COPY ~METweaks/NewChunkingAnimation~ ~override~
+
+COPY_EXISTING ~snone.bam~ ~override/spblood.bam~
+
+COPY_EXISTING ~snone.bam~ ~override/spchunks.bam~
+
+COPY_EXISTING ~snone.bam~ ~override/spshadow.bam~
+
+COPY_EXISTING_REGEXP ~.*\.cre~ ~override~
+	READ_LONG 0x28 theanimation
+	LPF ADD_CRE_EFFECT INT_VAR opcode=modifyanimation target=1 timing=9 parameter1=theanimation parameter2=2 END
+
+COPY_EXISTING_REGEXP ~.*\.eff~ ~override~
+	READ_LONG 0x10 theopcode
+	PATCH_IF theopcode = wingbuffet BEGIN
+		READ_LONG 0x20 theparameter2
+		PATCH_IF theparameter2 = 2 BEGIN
+			thefilename = SOURCE_RES
+			INNER_ACTION BEGIN
+				COPY_EXISTING_REGEXP ~.*\.spl~ ~override~ ~.*\.itm~ ~override~
+					LPF CLONE_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 match_opcode=melee_hit_effect STR_VAR match_resource= EVAL ~%thefilename%~ resource=~meknockb~ insert=~below~ END
+					LPF CLONE_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 match_opcode=ranged_hit_effect STR_VAR match_resource= EVAL ~%thefilename%~ resource=~meknockb~ insert=~below~ END
+					BUT_ONLY_IF_IT_CHANGES
+			END
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING_REGEXP ~.*\.spl~ ~override~ ~.*\.itm~ ~override~
+	LPF CLONE_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 match_opcode=replaceself match_parameter2=1 opcode=translucency parameter1=255 parameter2=0 timing=9 END
+	LPF CLONE_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 match_opcode=wingbuffet match_parameter2=2 opcode=applyeffectslist parameter1=256 parameter2=138 timing=9 STR_VAR resource=~meknockb~ insert=~last~ END
+	BUT_ONLY_IF_IT_CHANGES
+
+BEGIN ~Remove the delay before a creature can be sneak-attacked again~ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~backstab.spl~) ~This cannot be done in this game.~ DESIGNATED 3800
+SUBCOMPONENT ~Modify Sneak Attack and Crippling Strike~
+
+COPY_EXISTING ~backstab.spl~ ~override~
+	LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete=protectionfrombackstab END
+
+BEGIN ~Reduce the delay before a creature can be sneak-attacked again to 1 round~ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~backstab.spl~) ~This cannot be done in this game.~ DESIGNATED 3805
+SUBCOMPONENT ~Modify Sneak Attack and Crippling Strike~
+
+COPY_EXISTING ~backstab.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR check_headers=1 check_globals=0 match_opcode=protectionfrombackstab duration=6 END
+
+BEGIN ~Remove the delay, but prevent multiple Crippling Strikes from stacking~ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~backstab.spl~) ~This cannot be done in this game.~ DESIGNATED 3810
+SUBCOMPONENT ~Modify Sneak Attack and Crippling Strike~
+
+COPY_EXISTING ~backstab.spl~ ~override~
+	LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete=protectionfrombackstab END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=removeeffectsbyresource target=2 timing=9 insert_point=0 STR_VAR resource=~backstab~ END
+
+BEGIN ~Reduce the delay to 1 round, but prevent multiple Crippling Strikes from stacking~ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~backstab.spl~) ~This cannot be done in this game.~ DESIGNATED 3815
+SUBCOMPONENT ~Modify Sneak Attack and Crippling Strike~
+
+COPY_EXISTING ~backstab.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR check_headers=1 check_globals=0 match_opcode=protectionfrombackstab duration=6 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=removeeffectsbyresource target=2 timing=9 insert_point=0 STR_VAR resource=~backstab~ END
+
+BEGIN ~Modify Fighting Styles~ DESIGNATED 4000
+
+COPY ~METweaks/RevisedFightingStyles~ ~override~
+
+COPY_EXISTING ~mestyleb.2da~ ~override/stylbonu.2da~
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+	COUNT_2DA_COLS me_num_columns
+	LPF GET_2DA_ROW INT_VAR numcolumns=me_num_columns STR_VAR match=~2HANDED~ RET therow=matched END
+	FOR (j = 4; j < me_num_columns; ++j) BEGIN
+		READ_2DA_ENTRY therow j me_num_columns theprofmax
+		PATCH_IF theprofmax = 2 BEGIN
+			SET_2DA_ENTRY therow j me_num_columns ~5~
+		END
+	END
+	LPF GET_2DA_ROW INT_VAR numcolumns=me_num_columns STR_VAR match=~SWORDANDSHIELD~ RET therow=matched END
+	FOR (j = 4; j < me_num_columns; ++j) BEGIN
+		READ_2DA_ENTRY therow j me_num_columns theprofmax
+		PATCH_IF theprofmax = 2 BEGIN
+			SET_2DA_ENTRY therow j me_num_columns ~5~
+		END
+	END
+	LPF GET_2DA_ROW INT_VAR numcolumns=me_num_columns STR_VAR match=~SINGLEWEAPON~ RET therow=matched END
+	FOR (j = 4; j < me_num_columns; ++j) BEGIN
+		READ_2DA_ENTRY therow j me_num_columns theprofmax
+		PATCH_IF theprofmax = 2 BEGIN
+			SET_2DA_ENTRY therow j me_num_columns ~5~
+		END
+	END
+	LPF GET_2DA_ROW INT_VAR numcolumns=me_num_columns STR_VAR match=~2WEAPON~ RET therow=matched END
+	FOR (j = 4; j < me_num_columns; ++j) BEGIN
+		READ_2DA_ENTRY therow j me_num_columns theprofmax
+		PATCH_IF theprofmax = 3 BEGIN
+			SET_2DA_ENTRY therow j me_num_columns ~5~
+		END
+	END
+
+STRING_SET_EVALUATE 37734 ~TWO-WEAPON: This fighting style allows the character to use two melee weapons at the same time with fewer penalties. A character wielding two weapons without a slot in this fighting style would incur a -4 penalty to attack rolls with the main weapon and a -8 penalty with the off-hand weapon.
+
+Proficient (1 slot): The wielder's penalties are reduced to -2 with the main weapon and -6 with the off-hand weapon.
+
+Specialized (2 slots): The wielder's penalties are reduced to 0 with the main weapon and -4 with the off-hand weapon.
+
+Master (3 slots): The wielder's penalties are reduced to 0 with the main weapon and -2 with the off-hand weapon.
+
+High Master (4 slots): The wielder gets no penalties from wielding two weapons.
+
+Grand Master (5 slots): The wielder gets no penalties from wielding two weapons and gets a +1 bonus to AC while doing so.~
+
+STRING_SET_EVALUATE 37728 ~TWO-HANDED: This fighting style allows the character to use a two-handed melee weapon and receive special bonuses.
+
+Proficient (1 slot): The wielder gets a +2 bonus to damage rolls and a -1 bonus to Speed Factor.
+
+Specialized (2 slots): The wielder gets a +3 bonus to damage rolls, a -2 bonus to Speed Factor, and the ability to score critical hits on a roll of 19 or 20 when using a two-handed weapon.
+
+Master (3 slots): The wielder gets a +5 bonus to damage rolls, a -3 bonus to Speed Factor, and the ability to score critical hits on a roll of 19 or 20 when using a two-handed weapon.
+
+High Master (4 slots): The wielder gets a +6 bonus to damage rolls, a -4 bonus to Speed Factor, and the ability to score critical hits on a roll of 18 to 20 when using a two-handed weapon.
+
+High Master (5 slots): The wielder gets a +8 bonus to damage rolls, a -5 bonus to Speed Factor, and the ability to score critical hits on a roll of 18 to 20 when using a two-handed weapon.~
+
+STRING_SET_EVALUATE 37730 ~SWORD AND SHIELD: Anyone can pick up a shield and get its basic protection bonuses, but by spending slots on this fighting style, an adventurer can maximize the benefits received.
+
+Proficient (1 slot): The wielder gets a +1 bonus to AC against all weapons, and an additional +2 bonus to AC against missile weapons.
+
+Specialized (2 slots): The wielder gets a +2 bonus to AC against all weapons, and an additional +4 bonus to AC against missile weapons.
+
+Master (3 slots): The wielder gets a +3 bonus to AC against all weapons, and an additional +6 bonus to AC against missile weapons.
+
+High Master (4 slots): The wielder gets a +4 bonus to AC against all weapons, and an additional +8 bonus to AC against missile weapons.
+
+Grand Master (5 slots): The wielder gets a +5 bonus to AC against all weapons, and an additional +10 bonus to AC against missile weapons.
+
+NOTE: Despite the name of this style, any one-handed melee weapon in combination with a shield will receive the aforementioned bonuses.~
+
+STRING_SET_EVALUATE 37732 ~SINGLE-WEAPON: This fighting style is for characters who do not wish to use a shield but want some bonus when using a one-handed melee weapon.
+
+Proficient (1 slot): The wielder gets a +1 bonus to THAC0, a -1 bonus to Speed Factor, and the ability to score critical hits on a roll of 19 or 20 when using a one-handed weapon.
+
+Specialized (2 slots): The wielder gets a +2 bonus to THAC0, a -2 bonus to Speed Factor, and the ability to score critical hits on a roll of 18 to 20 when using a one-handed weapon.
+
+Master (3 slots): The wielder gets a +3 bonus to THAC0, a -3 bonus to Speed Factor, and the ability to score critical hits on a roll of 17 to 20 when using a one-handed weapon.
+
+High Master (4 slots): The wielder gets a +4 bonus to THAC0, a -4 bonus to Speed Factor, and the ability to score critical hits on a roll of 16 to 20 when using a one-handed weapon.
+
+Grand Master (5 slots): The wielder gets a +5 bonus to THAC0, a -5 bonus to Speed Factor, and the ability to score critical hits on a roll of 15 to 20 when using a one-handed weapon.~
+
+BEGIN ~Replace the "I'm on it like ugly on an orc" quote with "I'm on it"~ REQUIRE_PREDICATE (FILE_EXISTS ~lang/en_US/sounds/female5i.wav~) ~~ DESIGNATED 4200
+
+STRING_SET_EVALUATE 31640 ~I'm on it.~ [FEMALE5I]
+
+COPY ~METweaks/NoUglyOnOrc~ ~override~
+
+COPY ~METweaks/NoUglyOnOrc/female5i.wav~ ~lang/en_US/sounds~
