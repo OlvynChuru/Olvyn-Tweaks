@@ -1720,6 +1720,53 @@ If the spell's recipient fails its Saving Throw, it regards the caster as a trus
 
 If the caster harms—or attempts to harm—the charmed animal by some overt action, or if a Dispel Magic spell is cast upon the charmed animal, the spell is broken. Otherwise, the effect lasts for 10 hours. If two or more charms simultaneously affect a creature, the most recent charm takes precedence. Since this charm ability is not a form of magical mind control, the animal will not necessarily be hostile toward the ranger after the ability expires.~
 
+BEGIN ~Turn Paladin Detect Evil into a passive ability that can be toggled on and off~  DESIGNATED 1500
+
+COPY ~METweaks/PassiveDetectEvil~ ~override~
+
+ADD_PROJECTILE ~override/mearal60.pro~ //Instant area 60 ft. radius
+
+OUTER_TEXT_SPRINT detect_evil_res ~spcl212~
+ACTION_IF GAME_IS ~iwdee~ BEGIN
+	OUTER_TEXT_SPRINT detect_evil_res ~spcl109~
+END ELSE BEGIN
+	COPY_EXISTING_REGEXP ~.*\.2DA~ ~override~
+		REPLACE_TEXTUALLY CASE_INSENSITIVE ~GA_SPCL212[ %TAB%]~ ~****       ~
+		COUNT_2DA_COLS numcolumns
+		COUNT_2DA_ROWS numcolumns numrows
+		INSERT_2DA_ROW numrows numcolumns ~MEDETEVI   SPCL212  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ~
+		IF ~GA_SPCL212~
+		UNLESS ~PREREQUISITE~
+		BUT_ONLY_IF_IT_CHANGES
+END
+COPY_EXISTING ~%detect_evil_res%.spl~ ~override~ //Paladin Detect Evil
+	LPF ALTER_SPELL_HEADER INT_VAR projectile=1 END
+	LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete=(0 - 1) END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=removeeffectsbyresource target=1 timing=1 STR_VAR resource= EVAL ~%SOURCE_RES%~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=applyrepeatingeff target=1 timing=1 parameter1=1 parameter2=2 STR_VAR resource=~medetevi~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=removeability target=1 timing=9 STR_VAR resource=~mecl212e~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=giveability target=1 timing=9 STR_VAR resource=~mecl212e~ END
+	LPF ADD_SPELL_CFEFFECT INT_VAR opcode=giveability target=1 timing=9 STR_VAR resource= EVAL ~%SOURCE_RES%~ END
+	LPF ADD_SPELL_CFEFFECT INT_VAR opcode=removeability target=1 timing=9 STR_VAR resource= EVAL ~%SOURCE_RES%~ END
+	SAY UNIDENTIFIED_DESC ~Detect Evil
+
+Casting Time: 1
+
+This ability allows the character to see which creatures are evil. While Detect Evil is active, any evil creature within 30 feet will glow red briefly. Detect Evil lasts until it is turned off using End Detect Evil.
+
+This character can use this ability at will.~
+
+COPY_EXISTING ~mecl212e.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR silent=1 check_headers=1 check_globals=1 STR_VAR match_resource=~spcl212~ resource= EVAL ~%detect_evil_res%~ END
+	SAY NAME1 ~End Detect Evil~
+	SAY UNIDENTIFIED_DESC ~End Detect Evil
+
+The character stops using Detect Evil.~
+
+COPY_EXISTING ~medetevi.spl~ ~override~
+	LPF ALTER_SPELL_HEADER INT_VAR projectile=mearal60 END
+
+
 
 BEGIN ~Increase Wizard Slayer Magic Resistance~  DESIGNATED 1600
 
@@ -1946,6 +1993,23 @@ COPY_EXISTING ~ar1101.are~ ~override~ //Baldur's Gate southwest, building where 
 COPY_EXISTING ~ar0200.are~ ~override~ //Baldur's Gate, north area with Ducal Palace
 	LPF fj_are_structure INT_VAR fj_loc_x=3300 fj_loc_y=2500 STR_VAR fj_structure_type=~actor~ fj_name=~Wiven~ fj_cre_resref=~WIVEN~ END
 	UNLESS ~Wiven~
+
+BEGIN ~Give Belhifet more reasonable immunities~ REQUIRE_PREDICATE ((GAME_IS ~iwd how totlm iwdee~) OR (GAME_INCLUDES ~sod~)) ~Belhifet is not in this game.~ FORBID_COMPONENT ~BetterHOF.tp2~ ~0~ ~Improved Heart of Fury Mode already does this.~  DESIGNATED 3150
+
+ACTION_IF GAME_INCLUDES ~sod~ BEGIN
+
+	COPY_EXISTING ~bdbelhif.cre~ ~override~
+		WRITE_BYTE magicresistance 30
+
+	COPY ~METweaks/RevisedBelhifet/bdbelhia.itm~ ~override~
+
+END
+
+ACTION_IF GAME_IS ~iwdee~ BEGIN
+
+	COPY ~METweaks/RevisedBelhifet/bring.itm~ ~override~
+
+END
 
 BEGIN ~Creatures without infravision have -4 THAC0 at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~ DESIGNATED 3200
 SUBCOMPONENT ~Make Infravision actually do something~
