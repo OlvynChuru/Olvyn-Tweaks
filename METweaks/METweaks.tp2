@@ -2,6 +2,13 @@ BACKUP ~METweaks/backup~
 AUTHOR ~OlvynChuru~
 
 ALWAYS
+
+ACTION_IF GAME_IS ~eet~ BEGIN
+	OUTER_TEXT_SPRINT arbg ~bg~
+END ELSE BEGIN
+	OUTER_TEXT_SPRINT arbg ~ar~
+END
+
 OUTER_PATCH alltheconstants BEGIN
 	none=0
 	noprojectile=1
@@ -1563,7 +1570,7 @@ COPY_EXISTING ~profsmax.2da~ ~override~
 	END
 
 
-BEGIN ~Allow Shamans to move while dancing~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~This game does not have shamans.~  DESIGNATED 600
+BEGIN ~Allow Shamans to move while dancing~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~This game does not have shamans.~  DESIGNATED 600
 
 COPY_EXISTING ~spsh004.spl~ ~override~
 	LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete=movementratecheck END
@@ -1604,7 +1611,7 @@ COPY_EXISTING ~xplevel.2da~ ~override~
 	LPF GET_2DA_ROW STR_VAR match=~MONK~ RET numcolumns=numcols row=matched END
 	SET_2DA_ENTRY row 9 numcolumns ~160000~
 
-BEGIN ~Give Monks a cooler Deflect Missiles ability~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~This ability only works on the EE engine.~  DESIGNATED 1000
+BEGIN ~Give Monks a cooler Deflect Missiles ability~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~This ability only works on the EE engine.~  DESIGNATED 1000
 
 COPY ~METweaks/DeflectMissiles~ ~override~
 
@@ -1623,6 +1630,7 @@ COPY_EXISTING ~clabmo01.2da~ ~override~
 	COUNT_2DA_COLS numcolumns_2
 	COUNT_2DA_ROWS numcolumns_2 numrows_2
 	INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABIL1    AP_MECL851  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+	UNLESS ~AP_MECL851~
 
 COPY_EXISTING ~kitlist.2da~ ~override~
 	COUNT_2DA_ROWS 10 numrows
@@ -1635,6 +1643,8 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 					COUNT_2DA_COLS numcolumns_2
 					COUNT_2DA_ROWS numcolumns_2 numrows_2
 					INSERT_2DA_ROW numrows_2 numcolumns_2 ~ME_ABIL1    AP_MECL851  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+					IF_EXISTS
+					UNLESS ~AP_MECL851~
 			END
 		END
 	END
@@ -1895,24 +1905,24 @@ COPY_EXISTING_REGEXP ~.*\.are~ ~override~
 	BUT_ONLY_IF_IT_CHANGES
 
 
-BEGIN ~Make it possible to enter the Nashkel Mines through the back cave entrance~ REQUIRE_PREDICATE (GAME_IS ~bg1 totsc tutu tutu_totsc bgee~) ~Baldur's Gate 1 only.~ DESIGNATED 2800
+BEGIN ~Make it possible to enter the Nashkel Mines through the back cave entrance~ REQUIRE_PREDICATE (GAME_IS ~bg1 totsc tutu tutu_totsc bgee eet~) ~Baldur's Gate 1 only.~ DESIGNATED 2800
 
-COPY_EXISTING ~ar5000.are~ ~override~
-	LPF ALTER_AREA_REGION INT_VAR type=2 launch_x=1771 launch_y=822 info_point=0 flag_party_required=1 STR_VAR region_name=~Info5400~ destination_area=~ar5404~ entrance_name=~exit5000~ END
-	
-COPY_EXISTING ~ar5404.are~ ~override~
+COPY_EXISTING ~%arbg%5000.are~ ~override~
+	LPF ALTER_AREA_REGION INT_VAR type=2 launch_x=1771 launch_y=822 info_point=0 flag_party_required=1 STR_VAR region_name=~Info5400~ destination_area= EVAL ~%arbg%5404~ entrance_name=~exit5000~ END
+
+COPY_EXISTING ~%arbg%5404.are~ ~override~
 	LPF fj_are_structure INT_VAR fj_loc_x=2873 fj_loc_y=694 fj_orientation=6 STR_VAR fj_structure_type=~entrance~ fj_name=~exit5000~ END
 	LPF ALTER_ACTOR_AT_POINT INT_VAR match_x_coord=2772 match_y_coord=543 x_coord=2255 y_coord=266 END
 	LPF ALTER_ACTOR_AT_POINT INT_VAR match_x_coord=2857 match_y_coord=713 x_coord=2411 y_coord=376 END
 
 
-BEGIN ~Make it possible to enter the catacombs beneath Candlekeep early~ REQUIRE_PREDICATE (GAME_IS ~tutu tutu_totsc bgee~) ~Baldur's Gate 1 only~ DESIGNATED 3000
+BEGIN ~Make it possible to enter the catacombs beneath Candlekeep early~ REQUIRE_PREDICATE (GAME_IS ~tutu tutu_totsc bgee eet~) ~Baldur's Gate 1 only~ DESIGNATED 3000
 
 COPY ~METweaks/EarlyCandlekeepDungeon~ ~override~
 
 STRING_SET_EVALUATE 20366 ~This door leads to the upper levels of the keep. From the looks of it, it is heavily warded. You will not be able to pass.~
 
-COPY_EXISTING ~ar2600.are~ ~override~ ~ar2626.are~ ~override~
+COPY_EXISTING ~%arbg%2600.are~ ~override~ ~%arbg%2626.are~ ~override~
 	LPF fj_are_structure INT_VAR
 fj_type=2
 fj_flags=0x4
@@ -1927,18 +1937,18 @@ fj_vertex_0=(507 + (2792 << 16))
 fj_vertex_1=(593 + (2792 << 16))
 fj_vertex_2=(593 + (2836 << 16))
 fj_vertex_3=(507 + (2836 << 16))
-STR_VAR fj_structure_type=~region~ fj_name=~Door5506~ fj_destination_area=~AR5506~ fj_destination_name=~Exit2626~ END
+STR_VAR fj_structure_type=~region~ fj_name=~Door5506~ fj_destination_area= EVAL ~%arbg%5506~ fj_destination_name=~Exit2626~ END
 
-COPY_EXISTING ~ar5506.are~ ~override~
+COPY_EXISTING ~%arbg%5506.are~ ~override~
 	LPF fj_are_structure INT_VAR fj_loc_x=387 fj_loc_y=2000 fj_orientation=10 STR_VAR fj_structure_type=~entrance~ fj_name=~Exit2626~ END
 
-COPY_EXISTING ~ar2619.are~ ~override~
+COPY_EXISTING ~%arbg%2619.are~ ~override~
 	READ_LONG 0xc0 restencounteroffset
 	WRITE_ASCII (restencounteroffset + 0x48) ~GHAST~ #8
 	LPF ALTER_AREA_ACTOR STR_VAR actor_name=~Doppleganger~ script_specifics=~metethdi~ END
 	LPF ALTER_ACTOR_AT_POINT INT_VAR match_x_coord=513 match_y_coord=1200 x_coord=589 y_coord=1096 END
 
-COPY_EXISTING ~ar2615.are~ ~override~ ~ar2619.are~ ~override~ ~ar5506.are~ ~override~
+COPY_EXISTING ~%arbg%2615.are~ ~override~ ~%arbg%2619.are~ ~override~ ~%arbg%5506.are~ ~override~
 	LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~ME_CH6_Creatures~ fj_reg_script=~METETHEN~ END
 
 COPY_EXISTING
@@ -1963,21 +1973,21 @@ COPY_EXISTING
 ~diarmid.cre~ ~override~
 	LPF ADD_CRE_EFFECT INT_VAR opcode=imprisonment target=1 timing=9 parameter2=1 END
 
-COPY_EXISTING ~ar2613.bcs~ ~override~
+COPY_EXISTING ~%arbg%2613.bcs~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
 		REPLACE_TEXTUALLY CASE_SENSITIVE ~Global(\"MainQuestUpdate\",\"AR2613\",0)~ ~Global("MainQuestUpdate","AR2613",0)
 GlobalGT("Teth","GLOBAL",0)~
 	END
 
-BEGIN ~Make it so the Jacil and Wiven encounters aren't replaced by other quests~ REQUIRE_PREDICATE (GAME_IS ~tutu tutu_totsc bgee~) ~Baldur's Gate 1 only~ DESIGNATED 3100
+BEGIN ~Make it so the Jacil and Wiven encounters aren't replaced by other quests~ REQUIRE_PREDICATE (GAME_IS ~tutu tutu_totsc bgee eet~) ~Baldur's Gate 1 only~ DESIGNATED 3100
 
 COPY ~METweaks/FixReplacedEncounters~ ~override~
 
-COPY_EXISTING ~ar0307.are~ ~override~ //Merchant's League Counting House, first floor
+COPY_EXISTING ~%arbg%0307.are~ ~override~ //Merchant's League Counting House, first floor
 	LPF fj_are_structure STR_VAR fj_structure_type=~region~ fj_name=~Jacil Spawn~ fj_reg_script=~MEAR0307~ END
 	UNLESS ~MEAR0307~
 
-COPY_EXISTING ~ar1101.are~ ~override~ //Baldur's Gate southwest, building where you normally fight Wiven's thieves
+COPY_EXISTING ~%arbg%1101.are~ ~override~ //Baldur's Gate southwest, building where you normally fight Wiven's thieves
 	READ_LONG 0x54 actoroffset
 	READ_SHORT 0x58 actornumber
 	FOR (i = 0; i < actornumber; ++i) BEGIN
@@ -1990,7 +2000,7 @@ COPY_EXISTING ~ar1101.are~ ~override~ //Baldur's Gate southwest, building where 
 	END
 	IF ~WIVEN~
 
-COPY_EXISTING ~ar0200.are~ ~override~ //Baldur's Gate, north area with Ducal Palace
+COPY_EXISTING ~%arbg%0200.are~ ~override~ //Baldur's Gate, north area with Ducal Palace
 	LPF fj_are_structure INT_VAR fj_loc_x=3300 fj_loc_y=2500 STR_VAR fj_structure_type=~actor~ fj_name=~Wiven~ fj_cre_resref=~WIVEN~ END
 	UNLESS ~Wiven~
 
@@ -2011,7 +2021,7 @@ ACTION_IF GAME_IS ~iwdee~ BEGIN
 
 END
 
-BEGIN ~Creatures without infravision have -4 THAC0 at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~ DESIGNATED 3200
+BEGIN ~Creatures without infravision have -4 THAC0 at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~~ DESIGNATED 3200
 SUBCOMPONENT ~Make Infravision actually do something~
 
 COPY ~METweaks/Infravision~ ~override~
@@ -2137,7 +2147,7 @@ COPY_EXISTING_REGEXP ~.*\.are~ ~override~
 	END
 	BUT_ONLY_IF_IT_CHANGES
 
-BEGIN ~Creatures without infravision have reduced visual range at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~ DESIGNATED 3205
+BEGIN ~Creatures without infravision have reduced visual range at night or in dark places~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~~ DESIGNATED 3205
 SUBCOMPONENT ~Make Infravision actually do something~
 
 COPY ~METweaks/Infravision~ ~override~
@@ -2263,7 +2273,7 @@ COPY_EXISTING_REGEXP ~.*\.are~ ~override~
 	END
 	BUT_ONLY_IF_IT_CHANGES
 
-BEGIN ~Both 1 and 2~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee~) ~~ DESIGNATED 3210
+BEGIN ~Both 1 and 2~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~~ DESIGNATED 3210
 SUBCOMPONENT ~Make Infravision actually do something~
 
 COPY ~METweaks/Infravision~ ~override~
