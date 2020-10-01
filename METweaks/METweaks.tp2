@@ -1569,6 +1569,47 @@ COPY_EXISTING ~profsmax.2da~ ~override~
 		SET_2DA_ENTRY i 4 6 ~5~
 	END
 
+BEGIN ~Fighters get 1 point per 2 levels; Rangers and Paladins still get 1 point per 3 levels~ REQUIRE_PREDICATE !(GAME_IS ~iwd2~) ~~  DESIGNATED 500
+SUBCOMPONENT ~Increase the rate at which warriors get proficiency points~
+
+COPY_EXISTING ~profs.2da~ ~override~
+	SET_2DA_ENTRY 1 2 3 ~2~
+	SET_2DA_ENTRY 8 2 3 ~2~
+	SET_2DA_ENTRY 9 2 3 ~2~
+	SET_2DA_ENTRY 10 2 3 ~2~
+	SET_2DA_ENTRY 11 2 3 ~2~
+	SET_2DA_ENTRY 15 2 3 ~2~
+	SET_2DA_ENTRY 16 2 3 ~2~
+
+BEGIN ~Fighters, Rangers and Paladins get 1 point per 2 levels~ REQUIRE_PREDICATE !(GAME_IS ~iwd2~) ~~  DESIGNATED 505
+SUBCOMPONENT ~Increase the rate at which warriors get proficiency points~
+
+COPY_EXISTING ~profs.2da~ ~override~
+	SET_2DA_ENTRY 1 2 3 ~2~
+	SET_2DA_ENTRY 5 2 3 ~2~
+	SET_2DA_ENTRY 7 2 3 ~2~
+	SET_2DA_ENTRY 8 2 3 ~2~
+	SET_2DA_ENTRY 9 2 3 ~2~
+	SET_2DA_ENTRY 10 2 3 ~2~
+	SET_2DA_ENTRY 11 2 3 ~2~
+	SET_2DA_ENTRY 15 2 3 ~2~
+	SET_2DA_ENTRY 16 2 3 ~2~
+	SET_2DA_ENTRY 17 2 3 ~2~
+
+BEGIN ~Fighters get 1 point per level; Rangers and Paladins get 1 point per 2 levels~ REQUIRE_PREDICATE !(GAME_IS ~iwd2~) ~~  DESIGNATED 510
+SUBCOMPONENT ~Increase the rate at which warriors get proficiency points~
+
+COPY_EXISTING ~profs.2da~ ~override~
+	SET_2DA_ENTRY 1 2 3 ~1~
+	SET_2DA_ENTRY 5 2 3 ~2~
+	SET_2DA_ENTRY 7 2 3 ~2~
+	SET_2DA_ENTRY 8 2 3 ~1~
+	SET_2DA_ENTRY 9 2 3 ~1~
+	SET_2DA_ENTRY 10 2 3 ~1~
+	SET_2DA_ENTRY 11 2 3 ~1~
+	SET_2DA_ENTRY 15 2 3 ~1~
+	SET_2DA_ENTRY 16 2 3 ~1~
+	SET_2DA_ENTRY 17 2 3 ~2~
 
 BEGIN ~Allow Shamans to move while dancing~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~This game does not have shamans.~  DESIGNATED 600
 
@@ -1610,6 +1651,79 @@ COPY_EXISTING ~xplevel.2da~ ~override~
 	SET_2DA_ENTRY row 9 numcolumns ~160000~
 	LPF GET_2DA_ROW STR_VAR match=~MONK~ RET numcolumns=numcols row=matched END
 	SET_2DA_ENTRY row 9 numcolumns ~160000~
+
+BEGIN ~Let Rangers and Paladins cast spells at their full caster level~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet~) ~~  DESIGNATED 900
+
+COPY ~METweaks/RangerPaladinCasterLevel~ ~override~
+
+COPY_EXISTING ~clabpr01.2da~ ~override~
+	COUNT_2DA_COLS numcolumns_2
+	COUNT_2DA_ROWS numcolumns_2 numrows_2
+	INSERT_2DA_ROW numrows_2 numcolumns_2 ~MERCLNOL    AP_MERCLNOL  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+	UNLESS ~MERCLNOL~
+
+COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS 10 numrows
+	FOR (i = 1; i < numrows; ++i) BEGIN
+		READ_2DA_ENTRY i 8 10 class_of_kit
+		PATCH_IF class_of_kit=classcleric BEGIN
+			READ_2DA_ENTRY i 5 10 abilities_of_kit
+			INNER_ACTION BEGIN
+				COPY_EXISTING ~%abilities_of_kit%.2da~ ~override~
+					COUNT_2DA_COLS numcolumns_2
+					COUNT_2DA_ROWS numcolumns_2 numrows_2
+					INSERT_2DA_ROW numrows_2 numcolumns_2 ~MERCLNOL    AP_MERCLNOL  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+					UNLESS ~MERCLNOL~
+			END
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~clabrn01.2da~ ~override~
+	COUNT_2DA_COLS numcolumns_2
+	COUNT_2DA_ROWS numcolumns_2 numrows_2
+	INSERT_2DA_ROW numrows_2 numcolumns_2 ~MERANLEV    AP_MERANLEV  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+	UNLESS ~MERANLEV~
+
+COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS 10 numrows
+	FOR (i = 1; i < numrows; ++i) BEGIN
+		READ_2DA_ENTRY i 8 10 class_of_kit
+		PATCH_IF class_of_kit=classranger BEGIN
+			READ_2DA_ENTRY i 5 10 abilities_of_kit
+			INNER_ACTION BEGIN
+				COPY_EXISTING ~%abilities_of_kit%.2da~ ~override~
+					COUNT_2DA_COLS numcolumns_2
+					COUNT_2DA_ROWS numcolumns_2 numrows_2
+					INSERT_2DA_ROW numrows_2 numcolumns_2 ~MERANLEV    AP_MERANLEV  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+					UNLESS ~MERANLEV~
+			END
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~clabpa01.2da~ ~override~
+	COUNT_2DA_COLS numcolumns_2
+	COUNT_2DA_ROWS numcolumns_2 numrows_2
+	INSERT_2DA_ROW numrows_2 numcolumns_2 ~MEPALLEV    AP_MEPALLEV  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+	UNLESS ~MEPALLEV~
+
+COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS 10 numrows
+	FOR (i = 1; i < numrows; ++i) BEGIN
+		READ_2DA_ENTRY i 8 10 class_of_kit
+		PATCH_IF class_of_kit=classpaladin BEGIN
+			READ_2DA_ENTRY i 5 10 abilities_of_kit
+			INNER_ACTION BEGIN
+				COPY_EXISTING ~%abilities_of_kit%.2da~ ~override~
+					COUNT_2DA_COLS numcolumns_2
+					COUNT_2DA_ROWS numcolumns_2 numrows_2
+					INSERT_2DA_ROW numrows_2 numcolumns_2 ~MEPALLEV    AP_MEPALLEV  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****~
+					UNLESS ~MEPALLEV~
+			END
+		END
+	END
+	BUT_ONLY_IF_IT_CHANGES
 
 BEGIN ~Give Monks a cooler Deflect Missiles ability~ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee iwdee eet~) ~This ability only works on the EE engine.~  DESIGNATED 1000
 
