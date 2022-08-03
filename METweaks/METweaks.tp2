@@ -2716,7 +2716,24 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 		END
 	END
 
-STRING_SET_EVALUATE 37734 ~TWO-WEAPON: This fighting style allows the character to use two melee weapons at the same time with fewer penalties. A character wielding two weapons without a slot in this fighting style would incur a -4 penalty to attack rolls with the main weapon and a -8 penalty with the off-hand weapon.
+OUTER_SET me_two_weapon_strref = 37734
+OUTER_SET me_two_handed_strref = 37728
+OUTER_SET me_sword_and_shield_strref = 37730
+OUTER_SET me_single_weapon_strref = 37732
+
+ACTION_IF (GAME_IS ~bgee~) BEGIN
+	OUTER_SET me_two_weapon_strref = 24999
+	OUTER_SET me_two_handed_strref = 25044
+	OUTER_SET me_sword_and_shield_strref = 25045
+	OUTER_SET me_single_weapon_strref = 25046
+END ELSE ACTION_IF (GAME_IS ~bg2ee~) BEGIN
+	OUTER_SET me_two_weapon_strref = 34176
+	OUTER_SET me_two_handed_strref = 34150
+	OUTER_SET me_sword_and_shield_strref = 34173
+	OUTER_SET me_single_weapon_strref = 34174
+END
+
+STRING_SET_EVALUATE me_two_weapon_strref ~TWO-WEAPON: This fighting style allows the character to use two melee weapons at the same time with fewer penalties. A character wielding two weapons without a slot in this fighting style would incur a -4 penalty to attack rolls with the main weapon and a -8 penalty with the off-hand weapon.
 
 Proficient (1 slot): The wielder's penalties are reduced to -2 with the main weapon and -6 with the off-hand weapon.
 
@@ -2728,7 +2745,7 @@ High Master (4 slots): The wielder gets no penalties from wielding two weapons.
 
 Grand Master (5 slots): The wielder gets no penalties from wielding two weapons and gets a +1 bonus to AC while doing so.~
 
-STRING_SET_EVALUATE 37728 ~TWO-HANDED: This fighting style allows the character to use a two-handed melee weapon and receive special bonuses.
+STRING_SET_EVALUATE me_two_handed_strref ~TWO-HANDED: This fighting style allows the character to use a two-handed melee weapon and receive special bonuses.
 
 Proficient (1 slot): The wielder gets a +2 bonus to damage rolls and a -1 bonus to Speed Factor.
 
@@ -2740,7 +2757,7 @@ High Master (4 slots): The wielder gets a +6 bonus to damage rolls, a -4 bonus t
 
 High Master (5 slots): The wielder gets a +8 bonus to damage rolls, a -5 bonus to Speed Factor, and the ability to score critical hits on a roll of 18 to 20 when using a two-handed weapon.~
 
-STRING_SET_EVALUATE 37730 ~SWORD AND SHIELD: Anyone can pick up a shield and get its basic protection bonuses, but by spending slots on this fighting style, an adventurer can maximize the benefits received.
+STRING_SET_EVALUATE me_sword_and_shield_strref ~SWORD AND SHIELD: Anyone can pick up a shield and get its basic protection bonuses, but by spending slots on this fighting style, an adventurer can maximize the benefits received.
 
 Proficient (1 slot): The wielder gets a +1 bonus to AC against all weapons, and an additional +2 bonus to AC against missile weapons.
 
@@ -2754,7 +2771,7 @@ Grand Master (5 slots): The wielder gets a +5 bonus to AC against all weapons, a
 
 NOTE: Despite the name of this style, any one-handed melee weapon in combination with a shield will receive the aforementioned bonuses.~
 
-STRING_SET_EVALUATE 37732 ~SINGLE-WEAPON: This fighting style is for characters who do not wish to use a shield but want some bonus when using a one-handed melee weapon.
+STRING_SET_EVALUATE me_single_weapon_strref ~SINGLE-WEAPON: This fighting style is for characters who do not wish to use a shield but want some bonus when using a one-handed melee weapon.
 
 Proficient (1 slot): The wielder gets a +1 bonus to THAC0, a -1 bonus to Speed Factor, and the ability to score critical hits on a roll of 19 or 20 when using a one-handed weapon.
 
