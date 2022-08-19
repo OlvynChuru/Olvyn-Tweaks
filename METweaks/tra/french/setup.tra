@@ -1,0 +1,119 @@
+@0 = ~Ajustements de BG1EE.~
+@1 = ~Repartir l'experience de quete entre les membres du groupe.~
+@2 = ~Supprimer la limite de deux points de competence dans une arme a la creation du personnage.~
+@3 = ~Les guerriers obtiennent 1 point tous les 2 niveaux ; les rodeurs et les paladins obtiennent toujours 1 point tous les 3 niveaux.~
+@4 = ~Augmenter la vitesse a laquelle les guerriers obtiennent des points de competence.~
+@5 = ~Les guerriers, les rodeurs et les paladins obtiennent 1 point tous les 2 niveaux.~
+@6 = ~Les guerriers obtiennent 1 point par niveau ; les rodeurs et les paladins obtiennent 1 point tous les 2 niveaux.~
+@7 = ~Permettre aux chamans de se deplacer pendant leur danse.~
+@8 = ~Clercs seulement.~
+@9 = ~Faites en sorte que les clercs et/ou les moines n'aient besoin que de 160000 points d'experience pour atteindre le niveau 9.~
+@10 = ~Moines seulement.~
+@11 = ~Clercs et moines.~
+@12 = ~Permettre aux Rodeurs et aux Paladins de lancer des sorts a leur plein niveau de lanceur de sorts.~
+@13 = ~Donner aux Moines une capacite plus cool de Deflexion des projectiles.~
+@14 = ~Cette capacite ne fonctionne que sur le moteur EE.~
+@15 = ~Donner aux rodeurs la capacite de Pistage (de Trone de Bhaal) a partir du niveau 1.~
+@16 = ~Les rodeur ont deja la capacite de Pistage dans ce jeu.~
+@17 = ~Pistage.~
+@18 = ~Pistage
+Grâce a une connaissance intime de son environnement et des créatures qui y vivent, un rôdeur peut utiliser la capacité Pistage pour avoir une idée générale des créatures présentes dans une zone et de leur direction. Des flèches rouges au bord de l’écran indiqueront la direction générale des créatures dans la zone.~
+@19 = ~Ameliorer la capacite de Charmer un animal du Rodeur.~
+@20 = ~Charmer un animal
+Ce sort affecte un seul animal sur lequel il est lance. L'animal a droit a un jet de sauvegarde contre le sort avec un malus de -1 par niveau du rôdeur pour annuler l'effet.
+
+Si la cible du sort rate son jet de sauvegarde, elle considère le rôdeur comme un ami de confiance et un allie a respecter et a protéger. Le lanceur de sorts peut lui donner des ordres, et l'animal charme les exécutera aussi vite que possible.
+
+Si le rôdeur blesse - ou tente de blesser - l'animal charme par une action manifeste, ou si un sort de dissipation de la magie est lance sur l'animal charme, le sort est rompu. Sinon, l'effet dure 10 heures. Si deux charmes ou plus affectent simultanément une créature, le charme le plus récent a la priorité. Comme cette capacité de charme n'est pas une forme de contrôle mental magique, l'animal ne sera pas nécessairement hostile envers le rôdeur après l'expiration de la capacité.~
+@21 = ~Transformez la capacite de Detection du mal du paladin en une capacite passive qui peut etre activee ou desactivee.~
+@22 = ~Détection du mal
+
+Temps d'incantation : 1
+
+Cette capacité permet au personnage de voir quelles créatures sont maléfiques. Lorsque Détection du mal est activé, toute créature maléfique située dans un rayon de 10 mètres autour du paladin s'illumine brièvement en rouge. Détection du mal dure jusqu’à ce qu'elle soit désactive en utilisant Arrêter la détection du mal.
+
+Ce personnage peut utiliser cette capacite a volonte.~
+@23 = ~Arrêter la Détection du mal.~
+@24 = ~Arrêter la Détection du mal
+
+Le personnage arrête d'utiliser la Détection du mal.~
+@25 = ~Augmenter la resistance a la magie du Tueur de magiciens.~
+@26 = ~Le multiplicateur d’attaque sournoise des Assassins s'ameliore plus rapidement.~
+@27 = ~Ce composant est deja installe par High Power Baldur's Gate.~
+@28 = ~Permettre aux parchemins maudits d'etre utilises sur les ennemis.~
+@29 = ~Il n'y a pas de parchemins maudits dans ce jeu.~
+@31 = ~Faire que les creatures prennent moins de place.~
+@32 = ~Ce composant est deja installe par Improved Heart of Fury Mode.~
+@33 = ~Permettre aux ennemis de changer plus rapidement de cible d'attaque.~
+@34 = ~Transitions de zone sans obligation de reunir le groupe.~
+@35 = ~Rendre possible l'entree dans les mines de Nashkel par l'entree arriere de la grotte.~
+@36 = ~Ce composant n'est disponible que pour Baldur's Gate 1.~
+@37 = ~Permettre d'entrer dans les catacombes sous Chateausuif plus tot.~
+@38 = ~Cette porte mène aux niveaux supérieurs du donjon. D’après ce que l'on voit, elle est lourdement gardée. Vous ne serez pas en mesure de passer.~
+@39 = ~Faire que les rencontres de Jacil et Wiven ne soient pas remplacees par d'autres quetes.~
+@40 = ~Donner a Belhifet des immunites plus raisonnables.~
+@41 = ~Belhifet n'est pas dans ce jeu.~
+@43 = ~Les creatures sans infravision subissent -4 au TAC0 la nuit ou dans les endroits sombres.~
+@44 = ~Faire que l'Infravision serve a quelque chose.~
+@45 = ~Les creatures sans infravision ont une portee visuelle reduite la nuit ou dans les endroits sombres.~
+@46 = ~A la fois 1 et 2.~
+@47 = ~Doubler le taux de deplacement.~
+@48 = ~Augmenter la vitesse de toutes les creatures du jeu (y compris les membres du groupe).~
+@49 = ~Tripler le taux de deplacement.~
+@50 = ~Quadrupler le taux de deplacement.~
+@51 = ~Regler le taux de mouvement sur maximum.~
+@52 = ~Implementer un autre type d'animation de mort par eclatement.~
+@53 = ~Supprimez le delai avant qu'une creature puisse etre de nouveau attaquee sournoisement.~
+@54 = ~Ceci ne peut pas etre fait dans ce jeu.~
+@55 = ~Modifier l'attaque sournoise et l'attaque handicapante.~
+@56 = ~Reduire le delai avant qu'une creature puisse a nouveau etre attaquee sournoisement a 1 round.~
+@57 = ~Supprimer le delai, mais empeche les attaques handicapantes multiples de s'empiler.~
+@58 = ~Reduire le delai a 1 round, mais empeche les attaques handicapantes multiples de s'empiler.~
+@59 = ~Modifier les styles de combat.~
+@60 = ~DEUX ARMES : Ce style de combat permet au personnage d'utiliser deux armes de mêlée en mème temps avec moins de pénalités. Un personnage maniant deux armes sans un emplacement dans ce style de combat subit une pénalité de -4 aux jets d'attaque avec l'arme principale et une pénalité de -8 avec l'arme secondaire.
+
+Compétent (1 emplacement) : Les pénalités du porteur des armes sont réduites a -2 avec l'arme principale et a -6 avec l'arme secondaire.
+
+Spécialiste (2 emplacements) : Les pénalités du porteur des armes sont réduites a 0 avec l'arme principale et a -4 avec l'arme secondaire.
+
+Maître (3 emplacements) : Les pénalités du porteur des armes sont réduites a 0 avec l'arme principale et a -2 avec l'arme secondaire.
+
+Haut Maître (4 emplacements) : Le porteur des armes ne subit aucune pénalité lorsqu'il manie deux armes.
+
+Grand Maître (5 emplacements) : Le porteur des armes ne subit aucune pénalité et bénéficie d'un bonus de +1 a la CA lorsqu'il manie deux armes.~
+@61 = ~a DEUX MAINS : Ce style de combat permet au personnage d'utiliser une arme de mêlée a deux mains et de bénéficier de bonus spéciaux.
+
+Compétent (1 emplacement) : Le porteur de l'arme bénéficie d'un bonus de +2 aux jets de dégâts et d'un bonus de -1 au facteur de vitesse.
+
+Spécialiste (2 emplacements) : Le porteur de l'arme bénéficie d'un bonus de +3 aux jets de dégâts, d'un bonus de -2 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 19 ou 20 lorsqu'il utilise une arme a deux mains.
+
+Maître (3 emplacements) : Le porteur de l'arme bénéficie d'un bonus de +5 aux jets de dégâts, d'un bonus de -3 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 19 ou 20 lorsqu'il utilise une arme a deux mains.
+
+Haut Maître (4 emplacements) : Le porteur de l'arme bénéficie d'un bonus de +6 aux jets de dégâts, d'un bonus de -4 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 18 à 20 lorsqu'il utilise une arme a deux mains.
+
+Grand maître (5 emplacements) : Le porteur de l'arme bénéficie d'un bonus de +8 aux jets de dégâts, d'un bonus de -5 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 18 à 20 lorsqu'il utilise une arme a deux mains.~
+@62 = ~ePeE ET BOUCLIER : N'importe qui peut prendre un bouclier et bénéficier de ses bonus de protection de base, mais en dépensant des emplacements pour ce style de combat, un aventurier peut maximiser les avantages reçus.
+
+Compétent (1 emplacement) : Le porteur du bouclier bénéficie d'un bonus de +1 a la CA contre toutes les armes, et d'un bonus supplémentaire de +2 a la CA contre les armes a projectiles.
+
+Spécialiste (2 emplacements) : Le porteur du bouclier bénéficie d'un bonus de +2 a la CA contre toutes les armes et d'un bonus supplémentaire de +4 a la CA contre les armes a projectiles.
+
+Maître (3 emplacements) : Le porteur du bouclier bénéficie d'un bonus de +3 a la CA contre toutes les armes et d'un bonus supplémentaire de +6 a la CA contre les armes a projectiles.
+
+Haut Maître (4 emplacements) : Le porteur du bouclier bénéficie d'un bonus de +4 a la CA contre toutes les armes et d'un bonus supplémentaire de +8 a la CA contre les armes a projectiles.
+
+Grand Maître (5 emplacements) : Le porteur du bouclier bénéficie d'un bonus de +5 a la CA contre toutes les armes, et d'un bonus supplémentaire de +10 a la CA contre les armes a projectiles.
+
+REMARQUE : malgré le nom de ce style, toute arme de mêlée a une main combinée a un bouclier bénéficie des bonus susmentionnés.~
+@63 = ~ARME À UNE MAIN : Ce style de combat est destine aux personnages qui ne souhaitent pas utiliser de bouclier mais qui veulent un bonus lorsqu'ils utilisent une arme de mêlée à une main.
+
+Compétent (1 emplacement) : Le porteur de l'arme bénéficie d'un bonus de +1 au TAC0, d'un bonus de -1 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 19 ou 20 lorsqu'il utilise une arme a une main.
+
+Spécialiste (2 emplacements) : Le porteur de l'arme bénéficie d'un bonus de +2 au TAC0, d'un bonus de -2 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 18 à 20 lorsqu'il utilise une arme a une main.
+
+Maître (3 emplacements) : Le porteur de l'arme bénéficie d'un bonus de +3 au TAC0, d'un bonus de -3 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 17 à 20 lorsqu'il utilise une arme a une main.
+
+Haut maître (4 emplacements) : Le porteur de l'arme bénéficie d'un bonus de +4 au TAC0, d'un bonus de -4 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 16 à 20 lorsqu'il utilise une arme a une main.
+
+Grand Maître (5 emplacements) : Le porteur de l'arme bénéficie d'un bonus de +5 au TAC0, d'un bonus de -5 au facteur de vitesse et de la possibilité de faire des coups critiques sur un jet de 15 a 20 lorsqu'il utilise une arme a une main.~
+@64 = ~Remplacer le commentaire "I'm on it like ugly on an orc" par "I'm on it" (voix en anglais).~

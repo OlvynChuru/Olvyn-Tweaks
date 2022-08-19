@@ -1,0 +1,119 @@
+@0 = ~BG1EE Tweaks~
+@1 = ~Make quest experience divided among party members~
+@2 = ~Remove the limit of two proficiency points in a weapon at character creation~
+@3 = ~Fighters get 1 point per 2 levels; Rangers and Paladins still get 1 point per 3 levels~
+@4 = ~Increase the rate at which warriors get proficiency points~
+@5 = ~Fighters, Rangers and Paladins get 1 point per 2 levels~
+@6 = ~Fighters get 1 point per level; Rangers and Paladins get 1 point per 2 levels~
+@7 = ~Allow Shamans to move while dancing~
+@8 = ~Clerics only~
+@9 = ~Make it so that clerics and/or monks require only 160000 experience to get to level 9~
+@10 = ~Monks only~
+@11 = ~Both Clerics and Monks~
+@12 = ~Let Rangers and Paladins cast spells at their full caster level~
+@13 = ~Give Monks a cooler Deflect Missiles ability~
+@14 = ~This ability only works on the EE engine.~
+@15 = ~Give Rangers the Tracking ability (from Throne of Bhaal) starting at level 1~
+@16 = ~Rangers already have the tracking ability in this game.~
+@17 = ~Tracking~
+@18 = ~Tracking
+With an intimate knowledge of <PRO_HISHER> surroundings and the creatures that live within them, a ranger can use the Tracking ability to give <PRO_HIMHER>self a general idea of what creatures are in an area and which direction they are. Red arrows at the edge of the screen will point in the general direction of the creatures in the area.~
+@19 = ~Power Up Ranger Charm Animal~
+@20 = ~Charm Animal
+This spell affects any single animal it is cast upon. The animal is allowed a Save vs. Spell to negate the effect. This save is made at a penalty of -1 per level of the ranger.
+
+If the spell's recipient fails its Saving Throw, it regards the caster as a trusted friend and ally to be heeded and protected. The caster may give it orders, and the charmed animal will carry them out as quickly as possible.
+
+If the caster harms—or attempts to harm—the charmed animal by some overt action, or if a Dispel Magic spell is cast upon the charmed animal, the spell is broken. Otherwise, the effect lasts for 10 hours. If two or more charms simultaneously affect a creature, the most recent charm takes precedence. Since this charm ability is not a form of magical mind control, the animal will not necessarily be hostile toward the ranger after the ability expires.~
+@21 = ~Turn Paladin Detect Evil into a passive ability that can be toggled on and off~
+@22 = ~Detect Evil
+
+Casting Time: 1
+
+This ability allows the character to see which creatures are evil. While Detect Evil is active, any evil creature within 30 feet will glow red briefly. Detect Evil lasts until it is turned off using End Detect Evil.
+
+This character can use this ability at will.~
+@23 = ~End Detect Evil~
+@24 = ~End Detect Evil
+
+The character stops using Detect Evil.~
+@25 = ~Increase Wizard Slayer Magic Resistance~
+@26 = ~Make Assassin backstab multiplier improve faster~
+@27 = ~High Power Baldur's Gate already does this.~
+@28 = ~Allow cursed scrolls to be used on enemies~
+@29 = ~There are no cursed scrolls in this game.~
+@31 = ~Make creatures take up less space~
+@32 = ~Improved Heart of Fury Mode already does this.~
+@33 = ~Make enemies change their attack targets more quickly~
+@34 = ~No Party Required area transitions~
+@35 = ~Make it possible to enter the Nashkel Mines through the back cave entrance~
+@36 = ~Baldur's Gate 1 only.~
+@37 = ~Make it possible to enter the catacombs beneath Candlekeep early~
+@38 = ~This door leads to the upper levels of the keep. From the looks of it, it is heavily warded. You will not be able to pass.~
+@39 = ~Make it so the Jacil and Wiven encounters aren't replaced by other quests~
+@40 = ~Give Belhifet more reasonable immunities~
+@41 = ~Belhifet is not in this game.~
+@43 = ~Creatures without infravision have -4 THAC0 at night or in dark places~
+@44 = ~Make Infravision actually do something~
+@45 = ~Creatures without infravision have reduced visual range at night or in dark places~
+@46 = ~Both 1 and 2~
+@47 = ~Double the movement rate~
+@48 = ~Increase the speed of all creatures in the game (including party members)~
+@49 = ~Triple the movement rate~
+@50 = ~Quadruple the movement rate~
+@51 = ~Set the movement rate to the maximum~
+@52 = ~Implement a different kind of chunked death animation~
+@53 = ~Remove the delay before a creature can be sneak-attacked again~
+@54 = ~This cannot be done in this game.~
+@55 = ~Modify Sneak Attack and Crippling Strike~
+@56 = ~Reduce the delay before a creature can be sneak-attacked again to 1 round~
+@57 = ~Remove the delay, but prevent multiple Crippling Strikes from stacking~
+@58 = ~Reduce the delay to 1 round, but prevent multiple Crippling Strikes from stacking~
+@59 = ~Modify Fighting Styles~
+@60 = ~TWO-WEAPON: This fighting style allows the character to use two melee weapons at the same time with fewer penalties. A character wielding two weapons without a slot in this fighting style would incur a -4 penalty to attack rolls with the main weapon and a -8 penalty with the off-hand weapon.
+
+Proficient (1 slot): The wielder's penalties are reduced to -2 with the main weapon and -6 with the off-hand weapon.
+
+Specialized (2 slots): The wielder's penalties are reduced to 0 with the main weapon and -4 with the off-hand weapon.
+
+Master (3 slots): The wielder's penalties are reduced to 0 with the main weapon and -2 with the off-hand weapon.
+
+High Master (4 slots): The wielder gets no penalties from wielding two weapons.
+
+Grand Master (5 slots): The wielder gets no penalties from wielding two weapons and gets a +1 bonus to AC while doing so.~
+@61 = ~TWO-HANDED: This fighting style allows the character to use a two-handed melee weapon and receive special bonuses.
+
+Proficient (1 slot): The wielder gets a +2 bonus to damage rolls and a -1 bonus to Speed Factor.
+
+Specialized (2 slots): The wielder gets a +3 bonus to damage rolls, a -2 bonus to Speed Factor, and the ability to score critical hits on a roll of 19 or 20 when using a two-handed weapon.
+
+Master (3 slots): The wielder gets a +5 bonus to damage rolls, a -3 bonus to Speed Factor, and the ability to score critical hits on a roll of 19 or 20 when using a two-handed weapon.
+
+High Master (4 slots): The wielder gets a +6 bonus to damage rolls, a -4 bonus to Speed Factor, and the ability to score critical hits on a roll of 18 to 20 when using a two-handed weapon.
+
+High Master (5 slots): The wielder gets a +8 bonus to damage rolls, a -5 bonus to Speed Factor, and the ability to score critical hits on a roll of 18 to 20 when using a two-handed weapon.~
+@62 = ~SWORD AND SHIELD: Anyone can pick up a shield and get its basic protection bonuses, but by spending slots on this fighting style, an adventurer can maximize the benefits received.
+
+Proficient (1 slot): The wielder gets a +1 bonus to AC against all weapons, and an additional +2 bonus to AC against missile weapons.
+
+Specialized (2 slots): The wielder gets a +2 bonus to AC against all weapons, and an additional +4 bonus to AC against missile weapons.
+
+Master (3 slots): The wielder gets a +3 bonus to AC against all weapons, and an additional +6 bonus to AC against missile weapons.
+
+High Master (4 slots): The wielder gets a +4 bonus to AC against all weapons, and an additional +8 bonus to AC against missile weapons.
+
+Grand Master (5 slots): The wielder gets a +5 bonus to AC against all weapons, and an additional +10 bonus to AC against missile weapons.
+
+NOTE: Despite the name of this style, any one-handed melee weapon in combination with a shield will receive the aforementioned bonuses.~
+@63 = ~SINGLE-WEAPON: This fighting style is for characters who do not wish to use a shield but want some bonus when using a one-handed melee weapon.
+
+Proficient (1 slot): The wielder gets a +1 bonus to THAC0, a -1 bonus to Speed Factor, and the ability to score critical hits on a roll of 19 or 20 when using a one-handed weapon.
+
+Specialized (2 slots): The wielder gets a +2 bonus to THAC0, a -2 bonus to Speed Factor, and the ability to score critical hits on a roll of 18 to 20 when using a one-handed weapon.
+
+Master (3 slots): The wielder gets a +3 bonus to THAC0, a -3 bonus to Speed Factor, and the ability to score critical hits on a roll of 17 to 20 when using a one-handed weapon.
+
+High Master (4 slots): The wielder gets a +4 bonus to THAC0, a -4 bonus to Speed Factor, and the ability to score critical hits on a roll of 16 to 20 when using a one-handed weapon.
+
+Grand Master (5 slots): The wielder gets a +5 bonus to THAC0, a -5 bonus to Speed Factor, and the ability to score critical hits on a roll of 15 to 20 when using a one-handed weapon.~
+@64 = ~Replace the "I'm on it like ugly on an orc" quote with "I'm on it"~
